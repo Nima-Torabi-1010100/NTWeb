@@ -1,0 +1,48 @@
+# .NET build directories
+bin/
+obj/
+
+# User-specific files
+.vs/
+.vscode/
+.idea/
+
+# ASP.NET temporary files
+aspnet-https/
+
+# NUGET
+.nuget/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Published files
+*.publish/
+
+# Windows Explorer thumbs.db
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# Logs
+*.log
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]Release/
+[Dd]ReleasePublic/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# App settings (do not commit sensitive data)
+appsettings.json
+appsettings.Development.json

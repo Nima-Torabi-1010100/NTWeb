@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nima | @ViewData["Title"]</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="رزومه برنامه‌نویسی, طراحی سایت, توسعه‌دهنده وب, پروژه‌های وب, نمونه‌کار برنامه‌نویسی, HTML CSS JavaScript, سایت شخصی برنامه‌نویس">
+    <link href="~/images/favicon.png" rel="icon">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.0.9/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet">
+
+</head>
+<body class="index-page">
+
+    <header id="header" class="header dark-background d-flex flex-column">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+        <a asp-page="Index" class="logo d-flex align-items-center justify-content-center">
+            <svg width="400" height="100">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="base-text">
+                    NT
+                </text>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="animated-text">
+                    NT
+                </text>
+            </svg>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a asp-page="Index" class="@(ViewData["ActivePage"] as string == "Index" ? "active" : "")"><i class="bi bi-house navicon"></i>خانه</a></li>
+                <li><a asp-page="Resume" class="@(ViewData["ActivePage"] as string == "Resume" ? "active" : "")"><i class="bi bi-file-person-fill navicon"></i>رزومه</a></li>
+                <li><a asp-page="About" class="@(ViewData["ActivePage"] as string == "About" ? "active" : "")"><i class="bi bi-person navicon"></i>بیوگرافی</a></li>
+                <li><a asp-page="Podcast" class="@(ViewData["ActivePage"] as string == "Podcast" ? "active" : "")"><i class="bi bi-mic navicon"></i>پادکست‌ ها</a></li>
+                <li><a asp-page="Service" class="@(ViewData["ActivePage"] as string == "ServiceRequest" ? "active" : "")"><i class="bi bi-check2-square navicon"></i>سفارش پروژه</a></li>
+                <li><a asp-page="Contact" class="@(ViewData["ActivePage"] as string == "Contact" ? "active" : "")"><i class="bi bi-telephone navicon"></i>تماس با من</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-links">
+            <a href="https://github.com/Nima-Torabi-1010100" class="bi bi-github"></a>
+            <a class="bi bi-linkedin"></a>
+            <a href="https://t.me/nimatorabi_t" class="bi bi-telegram"></a>
+        </div>
+
+    </header>
+
+    <main class="main">
+        @RenderBody()
+    </main>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="~/js/purecounter_vanilla.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.0.9/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.7/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/typed-init.js"></script>
+
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
