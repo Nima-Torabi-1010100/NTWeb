@@ -527,12 +527,15 @@ section,
 
 .skills .progress-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    box-sizing: border-box;
 }
 
 .skills .progress {
-    width: 33.33%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     display: block;
     background: none;
@@ -588,6 +591,39 @@ section,
     box-shadow: 0 0 15px rgba(0, 170, 146, 0.6), 0 0 25px rgba(21, 31, 43, 0.8);
     position: relative;
     border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .skills .progress-container {
+        gap: 10px;
+    }
+
+    .skills .progress {
+        max-width: 200px;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 15px;
+    }
+
+        .skills .progress .skill {
+            font-size: 16px;
+        }
+
+        .skills .progress .val {
+            font-size: 12px;
+        }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .skills .progress {
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+    .skills .progress {
+        width: calc(33.33% - 20px);
+    }
 }
 /* Experiences Section */
 .experience .experience-title {
