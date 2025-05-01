@@ -22,6 +22,7 @@
     --default-color: #272829;
     /* Backgrounds and Surfaces */
     --background-color: #0f100e;
+    --border-background-color: rgba(255, 255, 255, 0.05);
     --surface-color: #ffffff;
     /* Accent and Highlights */
     --accent-color: #00aa92;
@@ -188,6 +189,7 @@ h6 {
     .navmenu li {
         border: 1px solid #8f8f8f;
         border-radius: 15px;
+        background-color: none;
         padding: 10px;
         margin: 0px;
         text-align: center;
@@ -393,6 +395,8 @@ section,
 
     .section-title p {
         margin-bottom: 0;
+        font-size: 20px;
+        color: white;
     }
 
 /* Hero Section */
@@ -538,7 +542,7 @@ section,
     max-width: 300px;
     height: auto;
     display: block;
-    background: none;
+    background-color: var(--border-background-color);
     align-items: center;
     text-align: center;
     border: 1px solid #8f8f8f;
@@ -660,6 +664,49 @@ section,
     .experience .experience-item:last-child {
         padding-bottom: 0;
     }
+/* Podcast Section */
+.podcast .podcast-card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+    .podcast .podcast-card:hover {
+        transform: scale(1.02);
+        background-color: rgba(0, 170, 146, 0.05);
+        box-shadow: 0 0 15px rgba(0, 170, 146, 0.4);
+    }
+
+    .podcast .podcast-card h4 {
+        font-size: 18px;
+        color: var(--heading-color);
+        margin-bottom: 20px;
+    }
+
+    .podcast .podcast-card .listen-btn {
+        display: block;
+        align-items: center;
+        width: 100%;
+        padding: 8px 16px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border-radius: 20px;
+        font-weight: bold;
+        text-align: center;
+        transition: background 0.3s ease;
+    }
+
+        .podcast .podcast-card .listen-btn:hover {
+            background-color: #007d6e;
+        }
 
 /* Image of Resume */
 .profile-img {

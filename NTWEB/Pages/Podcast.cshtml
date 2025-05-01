@@ -1,6 +1,30 @@
 ﻿@page
 @model NTWEB.Pages.PortfolioModel
 @{
-    ViewData["Title"] = "پورتفولیو";
+    ViewData["Title"] = "پادکست‌ها";
     ViewData["ActivePage"] = "Podcast";
 }
+<section id="podcast" class="podcast section light-background">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>پادکست‌ها‌</h2>
+        <p>
+            در این بخش می‌تونید پادکست‌هایی که من ادیتورش بودم رو ببینید، گوش کنید و لذت ببرید.
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+            @foreach (var item in Model.Podcasts)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="podcast-card">
+                        <div>
+                            <h4>@item.Title</h4>
+                            <a href="@item.Url" class="listen-btn" target="_blank">بشنوید :)</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

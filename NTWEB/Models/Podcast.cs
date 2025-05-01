@@ -5,27 +5,15 @@ namespace NTWEB.Models
 {
     public class Podcast : EntityBase
     {
-        public string Title { get; private set; }
-        public string Slug { get; private set; }
-        public string Image { get; private set; }
-        public string ImageAlt { get; private set; }
-        public string ShortDescription { get; private set; }
-        public Podcast(string title, string image, string imageAlt, string shortDescription)
+        public string Title { get; set; }
+        public string Url { get; set; }
+        public Podcast(string title, string url)
         {
             Title = title;
-            Image = image;
-            ImageAlt = imageAlt;
-            ShortDescription = shortDescription;
-            Slug = GenerateSlug();
+            Url = url;
         }
-        public string GenerateSlug()
+        public Podcast()
         {
-            if (!string.IsNullOrWhiteSpace(Title))
-                return "";
-            string slug = Title.ToLower();
-            slug = Regex.Replace(slug, @"[^a-z0-9\s]", "");
-            slug = Regex.Replace(slug, @"\s+", "-");
-            return slug;
         }
     }
 }
