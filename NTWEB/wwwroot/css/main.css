@@ -399,6 +399,13 @@ section,
         color: white;
     }
 
+@media(max-width:768px) {
+    .section-title {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
 /* Hero Section */
 .hero {
     width: 100%;
@@ -433,20 +440,6 @@ section,
         position: relative;
         z-index: 3;
     }
-
-    .hero p span {
-        letter-spacing: 0px;
-    }
-
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 20px;
-    }
-}
 
 /* About Section */
 .about .content h2 {
@@ -491,6 +484,9 @@ section,
     margin-top: -2px;
     font-weight: bold;
     border-right: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--border-background-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
     .resume .resume-item h4 {
@@ -643,6 +639,9 @@ section,
     margin-top: -2px;
     font-weight: bold;
     border-right: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--border-background-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
     .experience .experience-item h4 {
@@ -665,6 +664,10 @@ section,
         padding-bottom: 0;
     }
 /* Podcast Section */
+.podcast p {
+    padding-bottom: 20px;
+}
+
 .podcast .podcast-card {
     display: flex;
     justify-content: center;
@@ -708,13 +711,47 @@ section,
             background-color: #007d6e;
         }
 
+@media(max-width : 768px) {
+    .resume-title {
+        text-align: center;
+    }
+
+    .resume {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .skills {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .skills-title {
+        text-align: center;
+    }
+
+    .experience {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .experience-title {
+        text-align: center;
+    }
+
+    .podcast {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
 /* Image of Resume */
 .profile-img {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border: 3px solid #272829;
-    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 /* Typing Animation Effect with Cursor Blink */
@@ -773,6 +810,23 @@ section,
     }
 }
 
+@media (max-width: 768px) {
+    .hero img {
+        object-position: 25%;
+    }
+
+    .typed-container {
+        padding-top: 350px;
+    }
+
+    .typed {
+        font-size: 25px;
+    }
+
+    .typed-cursor {
+        font-size: 25px;
+    }
+}
 
 /* SVG Animation */
 .logo {
