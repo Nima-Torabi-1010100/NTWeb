@@ -74,6 +74,7 @@ h6 {
 /* Contact Form Messages */
 
 
+/* --- Layout --- */
 /* Header */
 .header {
     color: var(--default-color);
@@ -91,6 +92,7 @@ h6 {
     overflow-y: auto;
     z-index: 997;
     border-right: 1px solid var(--default-color);
+    border-left: 2px solid var(--border-background-color);
 }
 
     .header .logo {
@@ -172,6 +174,89 @@ h6 {
         transition: all 0.1s ease;
     }
 
+/* Hero Section */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .hero img {
+        position: absolute;
+        inset: 0;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 3;
+    }
+
+/* Global Sections */
+section,
+.section {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 50px 0;
+    overflow: clip;
+}
+
+/* Global Section Titles */
+.section-title {
+    padding-bottom: 50px;
+    position: relative;
+}
+
+    .section-title h2 {
+        font-size: 32px;
+        color: white;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+        .section-title h2:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            right: 0;
+            bottom: 0;
+        }
+
+    .section-title p {
+        margin-bottom: 0;
+        font-size: 20px;
+        color: white;
+    }
+
+@media(max-width:768px) {
+    .section-title {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+/* --- COMPONENTS --- */
 /* Navigation Menu */
 .mobile-nav-toggle {
     display: none;
@@ -219,6 +304,7 @@ h6 {
             box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
         }
 
+
     .navmenu ul {
         display: flex;
         flex-wrap: wrap;
@@ -261,46 +347,6 @@ h6 {
             .navmenu .active:focus .navicon {
                 color: var(--accent-color);
             }
-
-/* Preloader */
-#preloader {
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    overflow: hidden;
-    background: var(--background-color);
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.6s ease-out, visibility 0s linear 0.6s
-}
-
-    #preloader.hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    #preloader:before {
-        content: "";
-        position: fixed;
-        top: calc(50% - 30px);
-        left: calc(50% - 30px);
-        border: 6px solid #ffffff;
-        border-color: var(--accent-color) transparent var(--accent-color) transparent;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: animate-preloader 1.5s linear infinite;
-    }
-
-@keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 /* Scroll Top Button */
 .scroll-top {
@@ -360,88 +406,47 @@ h6 {
     }
 }
 
-/* Global Sections */
-section,
-.section {
-    color: var(--default-color);
-    background-color: var(--background-color);
-    padding: 50px 0;
-    overflow: clip;
+/* Preloader */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    overflow: hidden;
+    background: var(--background-color);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-out, visibility 0s linear 0.6s
 }
 
-/* Global Section Titles */
-.section-title {
-    padding-bottom: 50px;
-    position: relative;
-}
-
-    .section-title h2 {
-        font-size: 32px;
-        color: white;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        position: relative;
+    #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
     }
 
-        .section-title h2:after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            right: 0;
-            bottom: 0;
-        }
-
-    .section-title p {
-        margin-bottom: 0;
-        font-size: 20px;
-        color: white;
-    }
-
-@media(max-width:768px) {
-    .section-title {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
-/* Hero Section */
-.hero {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-    .hero img {
-        position: absolute;
-        inset: 0;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-    }
-
-    .hero:before {
+    #preloader:before {
         content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 2;
+        position: fixed;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        border: 6px solid #ffffff;
+        border-color: var(--accent-color) transparent var(--accent-color) transparent;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: animate-preloader 1.5s linear infinite;
     }
 
-    .hero .container {
-        position: relative;
-        z-index: 3;
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
     }
 
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- SECTION STYLES --- */
 /* About Section */
 .about .content h2 {
     font-weight: 700;
@@ -517,6 +522,15 @@ section,
     .resume .resume-item:last-child {
         padding-bottom: 0;
     }
+
+/* Image of Resume */
+.profile-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 3px solid #272829;
+    margin-bottom: 30px;
+}
 
 /* Skills Section */
 .skills .skills-title {
@@ -594,38 +608,6 @@ section,
     border-radius: 20px;
 }
 
-@media (max-width: 768px) {
-    .skills .progress-container {
-        gap: 10px;
-    }
-
-    .skills .progress {
-        max-width: 200px;
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 15px;
-    }
-
-        .skills .progress .skill {
-            font-size: 16px;
-        }
-
-        .skills .progress .val {
-            font-size: 12px;
-        }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .skills .progress {
-        width: calc(33.33% - 20px);
-    }
-}
-
-@media (min-width: 992px) {
-    .skills .progress {
-        width: calc(33.33% - 20px);
-    }
-}
 /* Experiences Section */
 .experience .experience-title {
     color: #ffffff;
@@ -664,6 +646,7 @@ section,
     .experience .experience-item:last-child {
         padding-bottom: 0;
     }
+
 /* Podcast Section */
 .podcast p {
     padding-bottom: 20px;
@@ -712,7 +695,55 @@ section,
             background-color: #007d6e;
         }
 
-@media(max-width : 768px) {
+/* Biography Section */
+.bio {
+    color: var(--heading-color);
+    width: 50%;
+}
+
+    .bio h1 {
+        border: 1px solid var(--accent-color);
+        border-radius: 15px;
+        padding: 10px;
+        color: var(--accent-color);
+        width: 100%;
+        border-left: 5px solid var(--accent-color);
+        padding-left: 20px;
+        margin-bottom: 50px;
+    }
+
+    .bio p {
+        font-size: 18px;
+        text-align: justify;
+    }
+
+.bio-section {
+    margin-bottom: 40px;
+}
+
+    .bio-section h2 {
+        color: var(--accent-color);
+        border-right: 4px solid var(--accent-color);
+        font-size: 24px;
+        border-top: 5px solid var(--border-background-color);
+        padding-right: 5px;
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .bio-section p {
+        border: 1px solid var(--accent-color);
+        background: rgba(159, 177, 143, 0.1);
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 25px;
+        font-size: 17px;
+        line-height: 1.8;
+        box-shadow: 0 2px 12px rgba(122, 180, 193, 0.2);
+    }
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
     .resume-title {
         text-align: center;
     }
@@ -731,6 +762,25 @@ section,
         text-align: center;
     }
 
+    .skills .progress-container {
+        gap: 10px;
+    }
+
+    .skills .progress {
+        max-width: 200px;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 15px;
+    }
+
+        .skills .progress .skill {
+            font-size: 16px;
+        }
+
+        .skills .progress .val {
+            font-size: 12px;
+        }
+
     .experience {
         padding-right: 10px;
         padding-left: 10px;
@@ -744,51 +794,28 @@ section,
         padding-right: 10px;
         padding-left: 10px;
     }
-}
 
-/* Biography Section */
-.biography {
-    color: var(--heading-color);
-    margin: 50px;
-}
-
-    .biography h1 {
+    .biography {
         width: 100%;
-        border-left: 1px solid var(--accent-color);
-        height: 40px;
-        padding-left: 20px;
-        margin-bottom: 50px;
+        padding: 50px;
     }
-
-    .biography p {
-        font-size: 18px;
-        text-align: justify;
-    }
-
-.bio-section {
-    margin-bottom: 40px;
-    border-right: 4px solid var(--accent-color);
-    padding-right: 20px;
 }
 
-    .bio-section h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-        color: var(--accent-color);
+@media (min-width: 768px) and (max-width: 991px) {
+    .skills .progress {
+        width: calc(33.33% - 20px);
     }
-
-    .bio-section p {
-        font-size: 17px;
-        line-height: 1.8;
-    }
-/* Image of Resume */
-.profile-img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border: 3px solid #272829;
-    margin-bottom: 30px;
 }
+
+@media (min-width: 992px) {
+    .skills .progress {
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media(max-width : 768px) {
+}
+
 
 /* Typing Animation Effect with Cursor Blink */
 .typed {
