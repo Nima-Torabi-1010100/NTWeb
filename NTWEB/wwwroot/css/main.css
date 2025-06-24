@@ -92,7 +92,6 @@ h6 {
     overflow-y: auto;
     z-index: 997;
     border-right: 1px solid var(--default-color);
-    border-left: 2px solid var(--border-background-color);
 }
 
     .header .logo {
@@ -139,12 +138,6 @@ h6 {
     }
 }
 
-@media (max-width: 1199px) {
-    .header {
-        right: -100%;
-    }
-}
-
 .header.header-show {
     right: 0;
 }
@@ -152,26 +145,19 @@ h6 {
 /* Header Toggle */
 .header .header-toggle {
     color: var(--contrast-color);
-    background-color: var(--default-dark);
-    font-size: 24px;
+    font-size: 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 35%;
     cursor: pointer;
     position: fixed;
     top: 15px;
     right: 15px;
-    left: auto;
     z-index: 9999;
     transition: background-color 0.3s;
 }
 
     .header .header-toggle:hover {
-        background-color: var(--accent-color);
-        transition: all 0.1s ease;
+        transform: scale(1.1);
+        transition: transform 0.1s ease-in-out;
     }
 
 /* Hero Section */
@@ -347,6 +333,14 @@ section,
             .navmenu .active:focus .navicon {
                 color: var(--accent-color);
             }
+
+@media (max-width:768px) {
+    .header {
+        right: -100%;
+        width: 100%;
+        padding: 100px;
+    }
+}
 
 /* Scroll Top Button */
 .scroll-top {
@@ -528,7 +522,7 @@ section,
     width: 250px;
     height: 250px;
     object-fit: cover;
-    border: 3px solid #272829;
+    border: 3px solid var(--accent-color);
     margin-bottom: 30px;
 }
 
@@ -795,9 +789,13 @@ section,
         padding-left: 10px;
     }
 
-    .biography {
+    .bio {
         width: 100%;
-        padding: 50px;
+        padding: 60px;
+    }
+
+    .bio-section h2 {
+        padding: 10px;
     }
 }
 
@@ -811,9 +809,6 @@ section,
     .skills .progress {
         width: calc(33.33% - 20px);
     }
-}
-
-@media(max-width : 768px) {
 }
 
 

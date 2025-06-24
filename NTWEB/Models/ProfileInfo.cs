@@ -2,11 +2,11 @@
 {
     public class ProfileInfo
     {
-        public string FullName { get; set; }
-        public string BirthDate { get; set; }
-        public string MobileNumber { get; set; }
-        public string Location { get; set; }
-        public string MilitaryStatus { get; set; }
-        public string Email { get; set; }
+        public required string FullName { get; set; }
+        public required string BirthDate { get; set; }
+        public required string MobileNumber { get; set; }
+        public required string Location { get; set; }
+        public required string MilitaryStatus { get; set; }
+        public required string Email { get; set; }
     }
 }
