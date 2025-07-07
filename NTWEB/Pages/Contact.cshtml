@@ -14,17 +14,33 @@
             <div>
                 <form method="post">
                     <div class="mb-3">
-                        <input type="text" class="form-control custom-input" id="name" placeholder="نام و نام خانوادگی">
+                        <input type="text" class="form-control custom-input" asp-for="ContactForm.Name" placeholder="نام و نام خانوادگی">
+                        <span asp-validation-for="ContactForm.Name" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control custom-input" id="email" placeholder="ایمیل / شماره همراه">
+                        <input type="email" class="form-control custom-input" asp-for="ContactForm.Email" placeholder="ایمیل">
+                        <span asp-validation-for="ContactForm.Email" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control custom-input" id="subject" placeholder="موضوع">
+                        <input type="text" class="form-control custom-input" asp-for="ContactForm.Subject" placeholder="موضوع">
+                        <span asp-validation-for="ContactForm.Subject" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control custom-input" id="message" rows="4" placeholder="متن پیام"></textarea>
+                        <textarea class="form-control custom-input" asp-for="ContactForm.Message" rows="4" placeholder="متن پیام"></textarea>
+                        <span asp-validation-for="ContactForm.Message" class="text-danger small"></span>
                     </div>
+                    @if (TempData["OperationStatus"]?.ToString() == "success")
+                    {
+                        <div class="message-success">
+                            <span>@TempData["OperationMessage"]</span>
+                        </div>
+                    }
+                    else if (TempData["OperationStatus"]?.ToString() == "failure")
+                    {
+                        <div class="message-danger">
+                            <span>@TempData["OperationMessage"]</span>
+                        </div>
+                    }
                     <button type="submit" class="btn custom-btn w-100">ارسال پیام</button>
                 </form>
             </div>

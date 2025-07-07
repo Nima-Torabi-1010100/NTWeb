@@ -750,6 +750,15 @@ section,
         text-align: center;
     }
 
+    .contact .message-success {
+        color: #a4ff9e;
+        text-align: center;
+    }
+    .contact .message-danger {
+        color: #ea1919;
+        text-align: center;
+    }
+
 .social-icons {
     display: inline-flex;
     justify-content: center;
