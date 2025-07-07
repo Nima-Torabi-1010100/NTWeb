@@ -46,3 +46,4 @@ Thumbs.db
 # App settings (do not commit sensitive data)
 appsettings.json
 appsettings.Development.json
+NTWEB/01_Framework/Variables.cs
