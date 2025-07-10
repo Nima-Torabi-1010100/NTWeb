@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NTWEB.Mappings;
-using NTWEB.Models;
+using NTWEB.Models.Resume;
 namespace NTWEB
 {
     public class NTWEBContext : DbContext

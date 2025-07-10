@@ -1,4 +1,4 @@
-﻿namespace NTWEB.Models
+﻿namespace NTWEB.Models.Resume
 {
     public class ProfileInfo
     {

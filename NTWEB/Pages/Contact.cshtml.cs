@@ -4,7 +4,6 @@ using MimeKit;
 using NTWEB.Models;
 using MailKit.Net.Smtp;
 using NTWEB._01_Framework;
-using System.Buffers;
 
 namespace NTWEB.Pages
 {

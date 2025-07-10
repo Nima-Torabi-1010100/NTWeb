@@ -71,8 +71,6 @@ h6 {
     font-family: var(--heading-font);
 }
 
-/* Contact Form Messages */
-
 
 /* --- Layout --- */
 /* Header */
@@ -757,6 +755,12 @@ section,
     .contact .message-danger {
         color: #ea1919;
         text-align: center;
+    }
+
+    .contact .valid-message {
+        border-bottom: 1px dashed rgb(220, 52, 69);
+        border-radius: 3px;
+        padding: 5px;
     }
 
 .social-icons {

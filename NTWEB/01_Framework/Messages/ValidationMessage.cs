@@ -2,6 +2,6 @@
 {
     public static class ValidationMessage
     {
-        public const string IsRequired = "اینو یادت رفت پرش کنی!";
+        public const string IsRequired = "اینو یادت رفته پرش بکنی!";
     }
 }

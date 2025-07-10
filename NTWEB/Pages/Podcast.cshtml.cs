@@ -7,7 +7,7 @@ namespace NTWEB.Pages
     public class PortfolioModel : PageModel
     {
         private readonly NTWEBContext _context;
-        public List<Podcast> Podcasts { get; set; } = new();
+        public List<PodcastViewModel> Podcasts { get; set; } = new();
         public PortfolioModel(NTWEBContext context)
         {
             _context = context;
@@ -31,17 +31,13 @@ namespace NTWEB.Pages
 
                 Podcasts = xml.Descendants("item")
                     .Where(item => item.Element("description")?.Value.Contains("نیما ترابی") == true)
-                    .Select(item => new Podcast
-                    {
-                        Title = item.Element("title")?.Value ?? "Unknown Title",
-                        Url = castboxUrl + (item.Element("title")?.Value ?? "") + "-id" + castboxPid + "-id"
-                        + (item.Element(castboxNamespace + "tid")?.Value ?? "Unknown Url")
-                    }).ToList();
+                    .Select(item => new PodcastViewModel(item.Element("title")?.Value ?? "Unknown Title", castboxUrl + (item.Element("title")?.Value ?? "") + "-id" + castboxPid + "-id"
+                        + (item.Element(castboxNamespace + "tid")?.Value ?? "Unknown Url"))).ToList();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Podcasts = new List<Podcast> { new Podcast("خطا در دریافت پادکست‌ها", "#") };
+                Podcasts = new List<PodcastViewModel> { new PodcastViewModel("خطا در دریافت پادکست‌ها", "#") };
             }
         }
     }

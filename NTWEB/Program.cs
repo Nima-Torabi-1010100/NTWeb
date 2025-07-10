@@ -1,20 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using NTWEB;
 using NTWEB.Middleware;
+using NTWEB.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var razorBuilder = builder.Services.AddRazorPages();
+builder.Configuration.AddEnvironmentVariables();
 var connStr = Environment.GetEnvironmentVariable("MyConnectionString");
+builder.Services.AddTransient<IResumeRepository, ResumeRepository>();
 
 builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));
-builder.Configuration.AddEnvironmentVariables();
 
-if (builder.Environment.IsDevelopment())
-{
-    razorBuilder.AddRazorRuntimeCompilation();
-}
+//if (builder.Environment.IsDevelopment())
+//{
+//    razorBuilder.AddRazorRuntimeCompilation();
+//}
 
 var app = builder.Build();
 

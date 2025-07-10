@@ -1,6 +1,6 @@
 ﻿using NTWEB._01_Framework;
 
-namespace NTWEB.Models
+namespace NTWEB.Models.Resume
 {
     public class Language : EntityBase
     {

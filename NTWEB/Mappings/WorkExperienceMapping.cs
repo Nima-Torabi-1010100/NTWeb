@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NTWEB.Models;
+using NTWEB.Models.Resume;
 
 namespace NTWEB.Mappings
 {
