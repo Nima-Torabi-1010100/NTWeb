@@ -1,36 +1,46 @@
 /* Fonts */
 @font-face {
     font-family: "Shabnam";
-    src: local("Shabnam.woff2"), url(/fonts/Shabnam.woff2) format('woff2');
+    src: local("Shabnam"), url(/fonts/Shabnam.woff2) format('woff2');
 }
 
 @font-face {
     font-family: "Shabnam-Bold";
-    src: local("Shabnam-Bold.woff2"), url(/fonts/Shabnam-Bold.woff2) format('woff2');
+    src: local("Shabnam Bold"), url(/fonts/Shabnam-Bold.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto") url(/fonts/Roboto-Regular.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins")  url(/fonts/Poppins-Regular.woff2) format('woff2');
 }
 
 :root {
     /* Fonts */
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue";
-    --heading-font: 'Poppins', 'Shabnam-Bold';
+    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+    --heading-font: 'Poppins', 'Shabnam-Bold', sans-serif;
     /* Farsi Fonts */
-    --farsi-font-regular: 'Shabnam';
-    --farsi-font-bold: 'Shabnam-Bold';
-    /* Typography Colors */
+    --farsi-font-regular: 'Shabnam', sans-serif;
+    --farsi-font-bold: 'Shabnam-Bold', sans-serif;
+
     --heading-color: #dfdfdf;
     --heading4-color: #a8a8a8;
     --default-color: #272829;
-    /* Backgrounds and Surfaces */
+
     --background-color: #0f100e;
     --border-background-color: rgba(255, 255, 255, 0.05);
     --surface-color: #ffffff;
-    /* Accent and Highlights */
+
     --accent-color: #7ab4c1;
     --contrast-color: #ffffff;
-    /* Navigation */
+
     --nav-color: #a8a9b4;
     --nav-hover-color: #ffffff;
-    /* Smooth scroll */
+
     scroll-behavior: smooth;
 }
 
@@ -756,11 +766,6 @@ section,
         text-align: center;
     }
 
-    .contact .valid-message {
-        border-bottom: 1px dashed rgb(220, 52, 69);
-        border-radius: 3px;
-        padding: 5px;
-    }
 
 .social-icons {
     display: inline-flex;
