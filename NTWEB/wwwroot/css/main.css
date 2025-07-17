@@ -1,20 +1,19 @@
 /* Fonts */
-/* Fonts */
 @font-face {
-    font-family: "Shabnam-Bold";
-    src: url(/fonts/Shabnam-Bold.woff2) format('woff2');
+    font-family: "Shabnam";
+    src: local("Shabnam.woff2"), url(/fonts/Shabnam.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: "Shabnam";
-    src: url(/fonts/Shabnam.woff2) format('woff2');
+    font-family: "Shabnam-Bold";
+    src: local("Shabnam-Bold.woff2"), url(/fonts/Shabnam-Bold.woff2) format('woff2');
 }
 
 :root {
     /* Fonts */
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue";
     --heading-font: 'Poppins', 'Shabnam-Bold';
-    /*Farsi Fonts*/
+    /* Farsi Fonts */
     --farsi-font-regular: 'Shabnam';
     --farsi-font-bold: 'Shabnam-Bold';
     /* Typography Colors */
