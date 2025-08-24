@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NTWEB.Models;
+using NTWEB.Models.Podcast;
 using System.Xml.Linq;
 
 namespace NTWEB.Pages

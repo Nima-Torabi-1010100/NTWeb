@@ -13,10 +13,10 @@ builder.Services.AddTransient<IResumeRepository, ResumeRepository>();
 
 builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));
 
-//if (builder.Environment.IsDevelopment())
-//{
-//    razorBuilder.AddRazorRuntimeCompilation();
-//}
+if (builder.Environment.IsDevelopment())
+{
+    razorBuilder.AddRazorRuntimeCompilation();
+}
 
 var app = builder.Build();
 

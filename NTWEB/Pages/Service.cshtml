@@ -4,3 +4,85 @@
     ViewData["Title"] = "سفارش پروژه";
     ViewData["ActivePage"] = "ServiceRequest";
 }
+<div>
+    <section id="contact" class="form-section section" data-aos="fade-up">
+        <div class="hexagon"></div>
+        <div class="container section-title">
+            <h2>ثبت پروژه</h2>
+        </div>
+
+        <div class="h3-wrapper">
+            <div class="circle"></div>
+            <div class="triangle"></div>
+            <h3>طراحی سایت اختصاصی!</h3>
+        </div>
+        <div class="container row col-lg-6">
+            <div>
+                <form method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control custom-input" asp-for="ServiceForm.Name" placeholder="نام و نام خانوادگی">
+                        <span asp-validation-for="ServiceForm.Name" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control custom-input" asp-for="ServiceForm.Email" placeholder="ایمیل">
+                        <span asp-validation-for="ServiceForm.Email" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control custom-input" asp-for="ServiceForm.PhoneNumber" placeholder="شماره تلفن">
+                        <span asp-validation-for="ServiceForm.PhoneNumber" class="text-danger small"></span>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control custom-input" asp-for="ServiceForm.Country" placeholder="کشور" value="ایران">
+                            <span asp-validation-for="ServiceForm.Country" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <input type="text" class="form-control custom-input" asp-for="ServiceForm.City" placeholder="شهر">
+                            <span asp-validation-for="ServiceForm.City" class="text-danger small"></span>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="mb-3">
+                        <select class="form-control custom-input" asp-for="ServiceForm.ProjectType">
+                            <option value="0">انتخاب نوع پروژه</option>
+                        </select>
+                        <span asp-validation-for="ServiceForm.ProjectType" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control custom-input" asp-for="ServiceForm.ProjectName" placeholder="نام پروژه">
+                        <span asp-validation-for="ServiceForm.Message" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control custom-input" asp-for="ServiceForm.CompanyName" placeholder="نام شرکت">
+                        <span asp-validation-for="ServiceForm.CompanyName" class="text-danger small"></span>
+                    </div>
+                    <hr />
+                    <div class="mb-3">
+                        <input class="form-control custom-input" asp-for="ServiceForm.Budget" placeholder="بودجه">
+                        <span asp-validation-for="ServiceForm.Budget" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-control custom-input" asp-for="ServiceForm.PaymentMethod">
+                            <option value="0">انتخاب نحوه پرداخت</option>
+                        </select>
+                        <span asp-validation-for="ServiceForm.PaymentMethod" class="text-danger small"></span>
+                    </div>
+
+                    @if (TempData["OperationStatus"]?.ToString() == "success")
+                    {
+                        <div class="message-success">
+                            <span>@TempData["OperationMessage"]</span>
+                        </div>
+                    }
+                    else if (TempData["OperationStatus"]?.ToString() == "failure")
+                    {
+                        <div class="message-danger">
+                            <span>@TempData["OperationMessage"]</span>
+                        </div>
+                    }
+                    <button type="submit" class="btn custom-btn w-100">ارسال پیام</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

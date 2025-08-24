@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MimeKit;
-using NTWEB.Models;
 using MailKit.Net.Smtp;
 using NTWEB._01_Framework;
+using NTWEB.Models.Contact;
 
 namespace NTWEB.Pages
 {
