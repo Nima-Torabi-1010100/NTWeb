@@ -13,10 +13,12 @@ builder.Services.AddTransient<IResumeRepository, ResumeRepository>();
 
 builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));
 
-if (builder.Environment.IsDevelopment())
-{
-    razorBuilder.AddRazorRuntimeCompilation();
-}
+builder.Services.AddResponseCompression(options => { options.EnableForHttps = true; });
+
+//if (builder.Environment.IsDevelopment())
+//{
+//    razorBuilder.AddRazorRuntimeCompilation();
+//}
 
 var app = builder.Build();
 
@@ -27,7 +29,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-app.UseMiddleware<RequestTimingMiddleware>();
+//app.UseMiddleware<RequestTimingMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
