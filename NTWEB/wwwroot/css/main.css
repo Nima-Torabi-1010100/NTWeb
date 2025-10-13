@@ -11,18 +11,25 @@
 
 @font-face {
     font-family: "Poppins";
-    src: local("Poppins") url(/fonts/Poppins-Regular.woff2) format('woff2');
+    src: local("Poppins"), url(/fonts/Poppins-Regular.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: local("Poppins") url(/fonts/Poppins-Regular.woff2) format('woff2');
+    font-family: "Monainn";
+    src: local("Monainn"), url(/fonts/monainn-font/MonainnRegular-RpWKo.otf) format('woff2');
+}
+
+@font-face {
+    font-family: "Qurova";
+    src: local("Qurova"), url(/fonts/qurova-demo/QurovaDEMO-Medium.otf) format('woff2');
+    src: local("Qurova"), url(/fonts/qurova-demo/QurovaDEMO-Medium.otf) format('woff2');
 }
 
 :root {
     /* Fonts */
     --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
     --heading-font: 'Poppins', 'Shabnam-Bold', sans-serif;
+    --logo-font: "Qurova", "Poppins";
     /* Farsi Fonts */
     --farsi-font-regular: 'Shabnam', sans-serif;
     --farsi-font-bold: 'Shabnam-Bold', sans-serif;
@@ -114,7 +121,6 @@ h6 {
     transition: all ease-in-out 0.3s;
     overflow-y: auto;
     z-index: 997;
-    border-right: 1px solid var(--default-color);
 }
 
     .header .logo {
@@ -164,22 +170,60 @@ h6 {
     right: 0;
 }
 
-/* Header Toggle */
+/* Top Bar & Header Toggle*/
+/*    transition: background-color 0.3s;*/
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(var(--background-color), 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    z-index: 9999;
+    flex-direction: row-reverse;
+}
+
+    .top-bar .site-name {
+        color: var(--accent-color);
+        font-family: var(--logo-font);
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: flex;
+    }
+}
+
 .header .header-toggle {
     color: var(--contrast-color);
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     cursor: pointer;
-    position: fixed;
     top: 15px;
     right: 15px;
     z-index: 9999;
-    transition: background-color 0.3s;
+    transition: color 0.3s;
 }
 
     .header .header-toggle:hover {
         color: var(--accent-color);
     }
+
+
+@media (max-width: 768px) {
+    .header .header-toggle {
+        top: 15px;
+    }
+}
 
 /* Hero Section */
 .hero {
@@ -210,8 +254,11 @@ section,
 .section {
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 50px 0;
+    padding: 25px 0;
     overflow: clip;
+}
+
+@media() {
 }
 
 /* Global Section Titles */
@@ -246,6 +293,7 @@ section,
     }
 
 @media(max-width:768px) {
+
     .section-title {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -476,7 +524,7 @@ section,
 .resume .resume-title {
     color: #ffffff;
     font-family: var(--farsi-font-bold);
-    font-size: 26px;
+    font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 50px;
 }
@@ -494,7 +542,7 @@ section,
 
     .resume .resume-item h4 {
         line-height: 18px;
-        font-size: 18px;
+        font-size: 1.07rem;
         font-weight: 600;
         text-transform: uppercase;
         color: var(--heading4-color);
@@ -502,7 +550,7 @@ section,
     }
 
     .resume .resume-item p {
-        font-size: 18px;
+        font-size: 1rem;
         color: var(--heading-color);
         font-weight: bold;
         margin-top: 5px;
@@ -624,7 +672,7 @@ section,
 .experience .experience-title {
     color: #ffffff;
     font-family: var(--farsi-font-bold);
-    font-size: 26px;
+    font-size: 1.5rem;
     margin-bottom: 30px;
 }
 
@@ -641,7 +689,7 @@ section,
 
     .experience .experience-item h4 {
         line-height: 18px;
-        font-size: 18px;
+        font-size: 1.07rem;
         font-weight: 600;
         text-transform: uppercase;
         color: var(--heading4-color);
@@ -649,7 +697,7 @@ section,
     }
 
     .experience .experience-item p {
-        font-size: 18px;
+        font-size: 1rem;
         color: var(--heading-color);
         font-weight: bold;
         margin-top: 5px;
@@ -1126,18 +1174,19 @@ svg {
         position: relative;
         padding: 80px 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
     .header {
         width: 100%;
-        padding: 0% 12% 0% 12%;
+        padding: 20% 5% 5% 5%;
         right: -100%;
     }
 
-        .header .social-links {
-            display: none;
+        .header .header-show {
+            padding: 25% 12% 5% 12%;
         }
 
         .header .logo {
@@ -1145,28 +1194,55 @@ svg {
             max-height: 80px;
         }
 
-    .navmenu {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 10px;
+    .navmenu li {
+        width: 100%;
+        margin-bottom: 3px;
+        border-radius: 12px;
     }
 
-        .navmenu li {
-            width: 100%;
-            margin-bottom: 10px;
-            border-radius: 12px;
+        .navmenu li a {
+            font-size: 18px;
+            padding: 2px;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 10px;
         }
 
-            .navmenu li a {
-                font-size: 18px;
-                padding: 8px;
-                flex-direction: row;
-                justify-content: flex-start;
-                gap: 10px;
-            }
+        .navmenu li .navicon {
+            font-size: 24px;
+            margin-bottom: 0;
+        }
 
-            .navmenu li .navicon {
-                font-size: 24px;
-                margin-bottom: 0;
-            }
+    .social-links,
+    .navmenu {
+        background: inherit;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 20px;
+        width: 90%;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+        margin: 5px 0;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .header.header-show .navmenu {
+        animation: fadeInDown 0.3s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }

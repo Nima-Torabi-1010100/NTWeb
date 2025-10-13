@@ -25,7 +25,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://0.0.0.0:5500"
+      "applicationUrl": "https://0.0.0.0:2535"
     },
     "Production": {
       "commandName": "Project",

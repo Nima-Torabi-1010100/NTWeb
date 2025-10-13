@@ -15,10 +15,10 @@ builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(conn
 
 builder.Services.AddResponseCompression(options => { options.EnableForHttps = true; });
 
-//if (builder.Environment.IsDevelopment())
-//{
-//    razorBuilder.AddRazorRuntimeCompilation();
-//}
+if (builder.Environment.IsDevelopment())
+{
+    razorBuilder.AddRazorRuntimeCompilation();
+}
 
 var app = builder.Build();
 
