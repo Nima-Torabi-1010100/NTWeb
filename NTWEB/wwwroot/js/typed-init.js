@@ -1,39 +1,47 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    const typedElement = document.querySelector('.typed');
+    const typedElement = document.querySelector('.hero-text');
     if (!typedElement) {
-        /*        console.error("Element .typed not found in the DOM!");*/
         return;
     }
 
     const menuTexts = {
-        "home": ["به سایتم خوش اومدی!"],
-        "resume": ["برنامه‌نویس ASP.NET"],
-        "about": ["دانش آموخته مولتی‌مدیا!", "علاقه‌مند به تکنولوژی و هنر"],
-        "portfolio": ["معمار صداهای خاص!", "تولیدکننده پادکست‌های حرفه‌ای"],
-        "serviceRequest": ["ارائه خدمات برنامه‌نویسی و طراحی!"],
-        "contact": ["منتظر پیام شما هستم!"]
+        "home": "جایی برای آشنایی با من",
+        "resume": "تجربه و مسیر من",
+        "about": "کمی درباره من",
+        "portfolio": "به تدوینم گوش بده",
+        "serviceRequest": "در ارتباط باشیم؟",
+        "contact": "شروع یه همکاری جدید؟"
     };
-
-    let currentStrings = ["به سایتم خوش اومدی!"];
-
-    let typed = new Typed('.typed', {
-        strings: currentStrings,
-        typeSpeed: 30,
-        backSpeed: 30,
-        backDelay: 1000,
-        startDelay: 500,
-        loop: true,
-        smartBackspace: true,
-        showCursor: true,
-        cursorChar: '▌',
-    });
 
     let lastMenuType = "home";
     let isChanging = false;
-    let changeTimeout;
+
+    // Set initial text
+    typedElement.textContent = menuTexts["home"];
+
+    function changeText(menuType) {
+        if (isChanging || menuType === lastMenuType) {
+            return;
+        }
+
+        isChanging = true;
+
+        // Fade out
+        typedElement.classList.add('fade-out');
+
+        setTimeout(() => {
+            // Change text
+            typedElement.textContent = menuTexts[menuType];
+
+            // Fade in
+            typedElement.classList.remove('fade-out');
+
+            lastMenuType = menuType;
+            isChanging = false;
+        }, 500);
+    }
 
     const menuItems = document.querySelectorAll('.navmenu ul li a');
-
     menuItems.forEach(item => {
         let menuType = "";
         if (item.textContent.includes("خانه")) menuType = "home";
@@ -44,60 +52,11 @@
         else if (item.textContent.includes("تماس")) menuType = "contact";
 
         item.addEventListener('mouseenter', function () {
-
-            if (isChanging || menuType === lastMenuType) {
-                return;
-            }
-
-            clearTimeout(changeTimeout);
-            isChanging = true;
-
-            changeTimeout = setTimeout(() => {
-                typed.destroy();
-
-                typed = new Typed('.typed', {
-                    strings: menuTexts[menuType],
-                    typeSpeed: 30,
-                    backSpeed: 30,
-                    backDelay: 1000,
-                    startDelay: 100,
-                    loop: true,
-                    smartBackspace: true,
-                    showCursor: true,
-                    cursorChar: '▌',
-                });
-
-                lastMenuType = menuType;
-                isChanging = false;
-            }, 200);
+            changeText(menuType);
         });
     });
 
     document.querySelector('.navmenu').addEventListener('mouseleave', function () {
-        if (isChanging || lastMenuType === "home") {
-            return;
-        }
-
-        clearTimeout(changeTimeout);
-        isChanging = true;
-
-        changeTimeout = setTimeout(() => {
-            typed.destroy();
-
-            typed = new Typed('.typed', {
-                strings: menuTexts["home"],
-                typeSpeed: 30,
-                backSpeed: 30,
-                backDelay: 1000,
-                startDelay: 100,
-                loop: true,
-                smartBackspace: true,
-                showCursor: true,
-                cursorChar: '▌',
-            });
-
-            lastMenuType = "home";
-            isChanging = false;
-        }, 200);
+        changeText("home");
     });
 });
