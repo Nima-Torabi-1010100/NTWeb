@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using NTWEB;
 using NTWEB.Middleware;
@@ -32,6 +33,7 @@ if (!app.Environment.IsDevelopment())
 //app.UseMiddleware<RequestTimingMiddleware>();
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
