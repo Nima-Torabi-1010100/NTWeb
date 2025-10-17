@@ -3,14 +3,13 @@
 
 
     /* Header toggle*/
-    const headerToggleBtn = document.querySelector('.header-toggle');
+    const headerToggleBtn = document.getElementById('header-toggle');
+    const header = document.getElementById('header');
 
-    function headerToggle() {
-        document.querySelector('#header').classList.toggle('header-show');
-        headerToggleBtn.classList.toggle('bi-list');
-        headerToggleBtn.classList.toggle('bi-x');
-    }
-    headerToggleBtn.addEventListener('click', headerToggle);
+    headerToggleBtn.addEventListener('click', () => {
+        header.classList.toggle('header-show'); 
+        headerToggleBtn.classList.toggle('active'); 
+    });
 
 
     /*Scroll to top after page reload*/

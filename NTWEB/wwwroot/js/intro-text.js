@@ -1,5 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    const typedElement = document.querySelector('.hero-text');
+    const typedElement = document.querySelector('.intro-text');
     if (!typedElement) {
         return;
     }
