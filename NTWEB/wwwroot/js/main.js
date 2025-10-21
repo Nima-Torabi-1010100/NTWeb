@@ -7,8 +7,8 @@
     const header = document.getElementById('header');
 
     headerToggleBtn.addEventListener('click', () => {
-        header.classList.toggle('header-show'); 
-        headerToggleBtn.classList.toggle('active'); 
+        header.classList.toggle('header-show');
+        headerToggleBtn.classList.toggle('active');
     });
 
 
@@ -203,5 +203,13 @@
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
+
+    const form = document.getElementById("form");
+    const btn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", () => {
+        btn.disabled = true;
+        btn.innerText = "در حال ارسال...";
+    });
 
 })();

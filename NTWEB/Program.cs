@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using NTWEB;
 using NTWEB.Middleware;
 using NTWEB.Repositories;
+using NTWEB.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ var razorBuilder = builder.Services.AddRazorPages();
 builder.Configuration.AddEnvironmentVariables();
 var connStr = Environment.GetEnvironmentVariable("MyConnectionString");
 builder.Services.AddTransient<IResumeRepository, ResumeRepository>();
+builder.Services.AddSingleton<EmailService>();
 
 builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));
 

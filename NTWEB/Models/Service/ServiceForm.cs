@@ -13,8 +13,6 @@ namespace NTWEB.Models.Service
         [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string CompanyName { get; set; }
         [Required(ErrorMessage = ValidationMessage.IsRequired)]
-        public int Budget { get; set; }
-        [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string PaymentMethod { get; set; }
         [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string Country { get; set; }

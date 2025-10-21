@@ -4,54 +4,52 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using NTWEB._01_Framework;
 using NTWEB.Models.Contact;
+using NTWEB.Services;
 
 namespace NTWEB.Pages
 {
     public class ContactModel : PageModel
     {
+        private readonly EmailService _emailService;
         [BindProperty] public ContactForm ContactForm { get; set; }
         [TempData]
         public string OperationMessage { get; set; }
         [TempData]
         public string OperationStatus { get; set; }
+        public ContactModel(EmailService emailService)
+        {
+            _emailService = emailService;
+        }
         public void OnGet()
         {
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
+            if (TempData["LastEmailSent"] is DateTime last &&
+                DateTime.Now - last < TimeSpan.FromSeconds(60))
             {
-                try
-                {
-                    var email = new MimeMessage();
-                    email.From.Add(new MailboxAddress("NTWEB", Variables.Email));
-                    email.To.Add(MailboxAddress.Parse(Variables.Email));
-                    email.ReplyTo.Add(new MailboxAddress(ContactForm.Name, ContactForm.Email));
-                    email.Subject = ContactForm.Subject;
-
-                    email.Body = new TextPart("plain")
-                    {
-                        Text = $"From: {ContactForm.Name}\nEmail: {ContactForm.Email}\n\nMessage: {ContactForm.Message}"
-                    };
-                    var client = new SmtpClient();
-                    await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    await client.AuthenticateAsync(Variables.Email, Variables.AppPassword);
-                    await client.SendAsync(email);
-
-                    ContactForm = new ContactForm();
-
-                    OperationMessage = ApplicationMessages.SuccessMessage;
-                    OperationStatus = "success";
-                    return RedirectToPage();
-                }
-                catch
-                {
-                    OperationMessage = ApplicationMessages.FailureMessage;
-                    OperationStatus = "failure";
-                    return RedirectToPage();
-                }
+                OperationMessage = $"لطفا کمی بعد دوباره تلاش کنید!";
+                OperationStatus = "failure";
+                return RedirectToPage();
             }
-            return Page();
+
+            if (!ModelState.IsValid)
+                return Page();
+            try
+            {
+                await _emailService.SendEmailAsync("Contact", ContactForm.Email, ContactForm.Name, ContactForm.Subject, ContactForm.Message);
+                TempData["LastEmailSent"] = DateTime.Now;
+
+                OperationMessage = ApplicationMessages.SuccessMessage;
+                OperationStatus = "success";
+                return RedirectToPage();
+            }
+            catch
+            {
+                OperationMessage = ApplicationMessages.FailureMessage;
+                OperationStatus = "failure";
+                return RedirectToPage();
+            }
         }
     }
 }

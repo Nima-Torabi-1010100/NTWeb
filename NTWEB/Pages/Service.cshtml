@@ -18,7 +18,7 @@
         </div>
         <div class="container row col-lg-6">
             <div>
-                <form method="post">
+                <form id="form" method="post">
                     <div class="mb-3">
                         <input type="text" class="form-control custom-input" asp-for="ServiceForm.Name" placeholder="نام و نام خانوادگی">
                         <span asp-validation-for="ServiceForm.Name" class="text-danger small"></span>
@@ -43,14 +43,14 @@
                     </div>
                     <hr />
                     <div class="mb-3">
-                        <select class="form-control custom-input" asp-for="ServiceForm.ProjectType">
+                        <select class="form-control custom-input" asp-for="ServiceForm.ProjectType" asp-items="Model.ProjectTypes">
                             <option value="0">انتخاب نوع پروژه</option>
                         </select>
                         <span asp-validation-for="ServiceForm.ProjectType" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <input class="form-control custom-input" asp-for="ServiceForm.ProjectName" placeholder="نام پروژه">
-                        <span asp-validation-for="ServiceForm.Message" class="text-danger small"></span>
+                        <span asp-validation-for="ServiceForm.ProjectName" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <input class="form-control custom-input" asp-for="ServiceForm.CompanyName" placeholder="نام شرکت">
@@ -58,16 +58,11 @@
                     </div>
                     <hr />
                     <div class="mb-3">
-                        <input class="form-control custom-input" asp-for="ServiceForm.Budget" placeholder="بودجه">
-                        <span asp-validation-for="ServiceForm.Budget" class="text-danger small"></span>
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-control custom-input" asp-for="ServiceForm.PaymentMethod">
+                        <select class="form-control custom-input" asp-for="ServiceForm.PaymentMethod" asp-items="Model.PaymentMethods">
                             <option value="0">انتخاب نحوه پرداخت</option>
                         </select>
                         <span asp-validation-for="ServiceForm.PaymentMethod" class="text-danger small"></span>
                     </div>
-
                     @if (TempData["OperationStatus"]?.ToString() == "success")
                     {
                         <div class="message-success">
@@ -80,7 +75,7 @@
                             <span>@TempData["OperationMessage"]</span>
                         </div>
                     }
-                    <button type="submit" class="btn custom-btn w-100">ارسال پیام</button>
+                    <button id="submitBtn" type="submit" class="btn custom-btn w-100">ارسال پیام</button>
                 </form>
             </div>
         </div>

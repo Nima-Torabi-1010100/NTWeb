@@ -12,7 +12,7 @@
 
         <div class="container row col-lg-6">
             <div>
-                <form method="post">
+                <form id="form" method="post">
                     <div class="mb-3">
                         <input type="text" class="form-control custom-input" asp-for="ContactForm.Name" placeholder="نام و نام خانوادگی">
                         <span asp-validation-for="ContactForm.Name" class="text-danger small"></span>
@@ -41,7 +41,7 @@
                             <span>@TempData["OperationMessage"]</span>
                         </div>
                     }
-                    <button type="submit" class="btn custom-btn w-100">ارسال پیام</button>
+                    <button id="submitBtn" type="submit" class="btn custom-btn w-100">ارسال پیام</button>
                 </form>
             </div>
             <div>
