@@ -1,47 +1,48 @@
 ﻿@page
 @model NTWEB.Pages.ResumeModel
 @{
-    ViewData["Title"] = "رزومه";
+    ViewData["Title"] = "رزومه من";
+    ViewData["Description"] = "";
     ViewData["ActivePage"] = "Resume";
 }
 <div>
     <section id="resume" class="resume section" data-aos="fade-up" data-aos-delay="100">
         <div class="container section-title">
-            <h2>رزومه</h2>
+            <h1>رزومه من</h1>
+            <p>در این بخش اطلاعات شخصی، مهارت‌ها، تحصیلات و تجربه‌های کاری من رو مشاهده می‌کنید.</p>
         </div>
 
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3 text-center">
-                    <img src="~/images/profile1.jpg" alt="Profile Image" class="img-fluid profile-img" />
+                    <img src="~/images/profile1.jpg" alt="عکس پروفایل نیما ترابی" class="img-fluid profile-img" />
                 </div>
                 <div class="col-lg-9">
-@*                     <h3 class="resume-title">مشخصات فردی</h3> *@
                     <div class="row">
                         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
                             <div class="resume-item pb-0">
-                                <h4>نام و نام خانوادگی</h4>
+                                <h3>نام و نام خانوادگی</h3>
                                 <p>@Model.ProfileInfo.FullName</p>
                             </div>
 
                             <div class="resume-item pb-0">
-                                <h4>محل سکونت</h4>
+                                <h3>محل سکونت</h3>
                                 <p>@Model.ProfileInfo.Location</p>
                             </div>
 
                             <div class="resume-item pb-0">
-                                <h4>ایمیل</h4>
+                                <h3>ایمیل</h3>
                                 <p><a href="mailto:@(Model.ProfileInfo.Email)">@Model.ProfileInfo.Email</a></p>
                             </div>
                         </div>
                         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
                             <div class="resume-item pb-0">
-                                <h4>تاریخ تولد</h4>
+                                <h3>تاریخ تولد</h3>
                                 <p>@Model.ProfileInfo.BirthDate</p>
                             </div>
 
                             <div class="resume-item pb-0">
-                                <h4>خدمت سربازی</h4>
+                                <h3>خدمت سربازی</h3>
                                 <p>@Model.ProfileInfo.MilitaryStatus</p>
                             </div>
 
@@ -57,7 +58,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 d-none d-lg-block"></div>
                 <div class="col-lg-9">
-                    <h3 class="skills-title">مهارت‌های من</h3>
+                    <h2 class="skills-title">مهارت‌های من</h2>
                     @for (int i = 0; i < Model.Skills.Count; i++)
                     {
                         @if (i % 3 == 0)
@@ -88,7 +89,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 d-none d-lg-block"></div>
                 <div class="col-lg-9">
-                    <h3 class="experience-title">زبان ها</h3>
+                    <h2 class="experience-title">زبان ها</h2>
                     <div class="row">
                         @for(int i=0;i<Model.Languages.Count;i++)
                         {
@@ -97,7 +98,7 @@
                                 @:<div class="col-lg-6">
                             }
                             <div class="experience-item pb-0">
-                                <h4>@Model.Languages[i].Title</h4>
+                                <h3>@Model.Languages[i].Title</h3>
                                 <p>سطح: @Model.Languages[i].Level</p>
                             </div>
                             if(i % 2 != 0 || Model.Languages.Count-1 == i)
@@ -118,11 +119,11 @@
                 @foreach (var item in Model.Educations)
                 {
                     <div class="col-lg-9">
-                        <h3 class="experience-title">تحصیلات</h3>
+                        <h2 class="experience-title">تحصیلات</h2>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="experience-item pb-0">
-                                <h4>@item.Degree | @item.School</h4>
+                                <h3>@item.Degree | @item.School</h3>
                                 <p>@item.Year</p>
                             </div>
                         </div>
@@ -138,14 +139,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 d-none d-lg-block"></div>
                 <div class="col-lg-9">
-                    <h3 class="experience-title">سابقه کاری</h3>
+                    <h2 class="experience-title">سابقه کاری</h2>
                     <div class="row">
                         @for(int i=0;i<Model.Experiences.Count;i++)
                         {
                            <div>
                                <div class="experience-item pb-0">
-                                   <h4>@Model.Experiences[i].JobTitle | @Html.Raw(@Model.Experiences[i].CompanyName)</h4>
-                                   <p>@Model.Experiences[i].Description | <a asp-page="Podcast">کلیک کن!</a></p>
+                                   <h3>@Model.Experiences[i].JobTitle | @Html.Raw(@Model.Experiences[i].CompanyName)</h3>
+                                   <p>@Model.Experiences[i].Description | <a asp-page="Podcast">مشاهده پادکست‌ها</a></p>
                                </div>
                             </div>
                         }

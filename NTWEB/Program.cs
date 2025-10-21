@@ -4,6 +4,8 @@ using NTWEB;
 using NTWEB.Middleware;
 using NTWEB.Repositories;
 using NTWEB.Services;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 var razorBuilder = builder.Services.AddRazorPages();
 builder.Configuration.AddEnvironmentVariables();
 var connStr = Environment.GetEnvironmentVariable("MyConnectionString");
-builder.Services.AddTransient<IResumeRepository, ResumeRepository>();
+
+builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
+builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 builder.Services.AddSingleton<EmailService>();
 
 builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));

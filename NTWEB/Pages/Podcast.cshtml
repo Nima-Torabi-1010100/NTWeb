@@ -1,14 +1,15 @@
 ﻿@page
 @model NTWEB.Pages.PortfolioModel
 @{
-    ViewData["Title"] = "پادکست‌ها";
+    ViewData["Title"] = "ادیت پادکست‌ها";
+    ViewData["Description"] = "";
     ViewData["ActivePage"] = "Podcast";
 }
 <section id="podcast" class="podcast section light-background">
     <div class="container section-title" data-aos="fade-up">
-        <h2>پادکست‌ها‌</h2>
+        <h1>پادکست‌ها‌</h1>
         <p>
-            در این بخش می‌تونید پادکست‌هایی که من ادیتورش بودم رو ببینید، گوش کنید و لذت ببرید.
+            در این بخش می‌تونید پادکست‌هایی که من ویرایش و تنظیم آن‌ها نقش داشتم رو ببینید، گوش کنید و لذت ببرید.
         </p>
     </div>
 
@@ -19,7 +20,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="podcast-card">
                         <div>
-                            <h4>@item.Title</h4>
+                            <h2>@item.Title</h2>
                             <a href="@item.Url" class="listen-btn" target="_blank">بشنوید :)</a>
                         </div>
                     </div>

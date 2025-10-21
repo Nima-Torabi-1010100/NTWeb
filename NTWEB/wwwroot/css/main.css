@@ -370,7 +370,7 @@ section,
     position: relative;
 }
 
-    .section-title h2 {
+    .section-title h1 {
         font-size: clamp(27px, 4vw, 32px);
         color: white;
         margin-bottom: 20px;
@@ -378,7 +378,7 @@ section,
         position: relative;
     }
 
-        .section-title h2:after {
+        .section-title h1:after {
             content: "";
             position: absolute;
             display: block;
@@ -390,7 +390,7 @@ section,
         }
 
     .section-title p {
-        margin-bottom: 0;
+        margin-bottom: 20px;
         font-size: 20px;
         color: white;
     }
@@ -713,6 +713,9 @@ section,
     }
 
 /* Resume Section */
+.section-title p {
+    font-family: var(--farsi-font-regular);
+}
 
 .resume .resume-title {
     color: #ffffff;
@@ -732,7 +735,7 @@ section,
     margin-bottom: 20px;
 }
 
-    .resume .resume-item h4 {
+    .resume .resume-item h3 {
         line-height: 18px;
         font-size: 1.07rem;
         font-weight: 600;
@@ -882,7 +885,7 @@ section,
     margin-bottom: 20px;
 }
 
-    .experience .experience-item h4 {
+    .experience .experience-item h3 {
         line-height: 18px;
         font-size: 1.07rem;
         font-weight: 600;
@@ -903,10 +906,6 @@ section,
     }
 
 /* Podcast Section */
-.podcast p {
-    padding-bottom: 20px;
-}
-
 .podcast .podcast-card {
     display: flex;
     justify-content: center;
@@ -927,7 +926,7 @@ section,
         box-shadow: 0 0 15px rgba(0, 25, 35, 1);
     }
 
-    .podcast .podcast-card h4 {
+    .podcast .podcast-card h2 {
         font-size: 18px;
         color: var(--heading-color);
         margin-bottom: 20px;
@@ -1061,7 +1060,7 @@ section,
     background-color: white;
 }
 
-.h3-wrapper {
+.h2-wrapper {
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: center;
@@ -1077,7 +1076,7 @@ section,
     overflow: hidden;
 }
 
-    .h3-wrapper h3 {
+    .h2-wrapper h2 {
         font-size: 45px;
     }
 
@@ -1445,7 +1444,7 @@ svg {
         margin-bottom: 25px;
     }
 
-    .h3-wrapper h3 {
+    .h2-wrapper h2 {
         font-size: 1.5rem;
     }
 
