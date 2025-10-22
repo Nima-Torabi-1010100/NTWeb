@@ -7,6 +7,7 @@ namespace NTWEB.Models.Service
     {
         [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string PhoneNumber { get; set; }
+        [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string ProjectName { get; set; }
         [Required(ErrorMessage = ValidationMessage.IsRequired)]
         public string ProjectType { get; set; }

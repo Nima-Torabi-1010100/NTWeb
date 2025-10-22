@@ -27,7 +27,6 @@ namespace NTWEB.Pages
         {
             ProjectTypes = new SelectList(_projectTypes);
             PaymentMethods = new SelectList(_paymentMethods);
-
         }
         public async Task<IActionResult> OnPostAsync()
         {

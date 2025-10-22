@@ -6,7 +6,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>NT | @ViewData["Title"]</title>
     <meta name="description" content="@ViewData["Description"]" />
-    <meta name="keywords" content="رزومه برنامه‌نویسی, طراحی سایت, توسعه‌دهنده وب, پروژه‌های وب, نمونه‌کار برنامه‌نویسی, HTML CSS JavaScript, سایت شخصی نیما ترابی">
 
     <link href="~/images/favicon.png" rel="icon">
 
@@ -90,6 +89,8 @@
     <script src="~/js/main.js"></script>
 
     <partial name="_ValidationScriptsPartial">
+
+        @RenderSection("Scripts", required: false)
 
 </body>
 </html>

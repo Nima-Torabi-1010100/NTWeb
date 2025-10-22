@@ -1,15 +1,15 @@
 ﻿@page
 @model NTWEB.Pages.ServiceModel
 @{
-    ViewData["Title"] = "ثبت و سفارش پروژه طراحی سایت";
-    ViewData["Description"] = "";
+    ViewData["Title"] = "سفارش پروژه طراحی سایت";
+    ViewData["Description"] = " سفارش طراحی سایت اختصاصی با نیما ترابی؛ اگه دنبال طراحی یه سایت اختصاصی و حرفه‌ای هستی، من، نیما ترابی، پروژت رو با دقت بالا، خلاقیت و جدیدترین تکنولوژی‌ها انجام میدم. همین حالا درخواستت رو ثبت کن!";
     ViewData["ActivePage"] = "ServiceRequest";
 }
 <div>
     <section id="contact" class="form-section section" data-aos="fade-up">
         <div class="hexagon"></div>
         <div class="container section-title">
-            <h1>ثبت و سفارش پروژه طراحی سایت</h1>
+            <h1>سفارش پروژه طراحی سایت</h1>
         </div>
 
         <div class="h2-wrapper">
@@ -42,7 +42,7 @@
                             <span asp-validation-for="ServiceForm.City" class="text-danger small"></span>
                         </div>
                     </div>
-                    <hr />
+                    <hr class="form-section-divider-top" />
                     <div class="mb-3">
                         <select class="form-control custom-input" asp-for="ServiceForm.ProjectType" asp-items="Model.ProjectTypes">
                             <option value="0">انتخاب نوع پروژه</option>
@@ -57,7 +57,7 @@
                         <input class="form-control custom-input" asp-for="ServiceForm.CompanyName" placeholder="نام شرکت">
                         <span asp-validation-for="ServiceForm.CompanyName" class="text-danger small"></span>
                     </div>
-                    <hr />
+                    <hr class="form-section-divider-top" />
                     <div class="mb-3">
                         <select class="form-control custom-input" asp-for="ServiceForm.PaymentMethod" asp-items="Model.PaymentMethods">
                             <option value="0">انتخاب نحوه پرداخت</option>
