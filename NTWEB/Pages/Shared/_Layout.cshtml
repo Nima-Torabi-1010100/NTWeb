@@ -4,18 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>NT | @ViewData["Title"]</title>
+    <title>Nima | @ViewData["Title"]</title>
     <meta name="description" content="@ViewData["Description"]" />
 
     <link href="~/images/favicon.png" rel="icon">
-
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="~/lib/aos/aos.css" rel="stylesheet" />
     <link href="~/lib/glightbox/glightbox.min.css" rel="stylesheet" />
     <link href="~/lib/swiper/swiper.min.css" rel="stylesheet" />
     <link href="~/css/main.css" rel="stylesheet" />
-    @* <link href="~/css/main.min.css" rel="stylesheet" /> *@
+    @RenderSection("Styles", required: false)
 </head>
 
 <body class="index-page">
@@ -84,9 +83,12 @@
     <script src="~/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="~/lib/swiper/swiper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/intro-text.js"></script>
+    @if (ViewData["ActivePage"]?.ToString() == "Index")
+    {
+        <script src="~/js/intro-text.min.js"></script>
+    }
 
-    <script src="~/js/main.js"></script>
+    <script src="~/js/main.min.js"></script>
 
     <partial name="_ValidationScriptsPartial">
 

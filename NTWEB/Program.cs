@@ -40,7 +40,15 @@ app.UseMiddleware<RequestTimingMiddleware>();
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
+app.UseResponseCompression();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=31536000");
+    }
+});
 
 app.UseRouting();
 

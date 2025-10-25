@@ -2,21 +2,25 @@
 @font-face {
     font-family: "Shabnam";
     src: local("Shabnam"), url(/fonts/Shabnam.woff2) format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Shabnam-Bold";
     src: local("Shabnam Bold"), url(/fonts/Shabnam-Bold.woff2) format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Poppins";
     src: local("Poppins"), url(/fonts/Poppins-Regular.woff2) format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Qurova";
     src: local("Qurova"), url(/fonts/qurova-demo/QurovaDEMO-Medium.otf) format('woff2');
+    font-display: swap;
 }
 
 :root {
@@ -163,10 +167,7 @@ a {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
     color: var(--heading-color);
     font-family: var(--heading-font);
 }
@@ -399,9 +400,6 @@ section,
 
 /* --- COMPONENTS --- */
 /* Navigation Menu */
-.mobile-nav-toggle {
-    display: none;
-}
 
 .navmenu {
     list-style: none;
@@ -466,7 +464,7 @@ section,
         margin: 0;
     }
 
-    .navmenu a, .navmenu a:focus, .intro-text, .experience, .experience-title, .skills, .skills-title, .resume, .resume-title {
+    .navmenu a, .navmenu a:focus, .intro-text {
         font-family: var(--farsi-font-bold);
     }
 
@@ -503,6 +501,10 @@ section,
                     color: var(--accent-color);
                     filter: drop-shadow(0 0 8px rgba(100, 220, 255, 0.6));
                 }
+
+.quick-access {
+    display: none;
+}
 
 /* Quick Access */
 @media(max-width:768px) {
@@ -685,96 +687,8 @@ section,
     }
 }
 
-/* --- SECTION STYLES --- */
-/* About Section */
-.about .content h2 {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.about .content ul {
-    list-style: none;
-    padding: 0;
-}
-
-    .about .content ul li {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-    }
-
-    .about .content ul strong {
-        margin-right: 10px;
-    }
-
-    .about .content ul i {
-        font-size: 16px;
-        margin-right: 5px;
-        color: var(--accent-color);
-        line-height: 0;
-    }
-
-/* Resume Section */
 .section-title p {
     font-family: var(--farsi-font-regular);
-}
-
-.resume .resume-title {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-
-.resume .resume-item {
-    position: relative;
-    padding: 5px 15px;
-    margin-top: -2px;
-    font-weight: bold;
-    border-right: 2px solid var(--accent-color);
-    border-bottom: 2px solid var(--border-background-color);
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-    .resume .resume-item h3 {
-        line-height: 18px;
-        font-size: 1.07rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: var(--heading4-color);
-        margin-bottom: 10px;
-    }
-
-    .resume .resume-item p {
-        font-size: 1rem;
-        color: var(--heading-color);
-        font-weight: bold;
-        margin-top: 5px;
-    }
-
-    .resume .resume-item ul {
-        padding-right: 20px;
-    }
-
-        .resume .resume-item ul li {
-            padding-bottom: 10px;
-        }
-
-    .resume .resume-item:last-child {
-        padding-bottom: 0;
-    }
-
-/* Image of Resume */
-.profile-img {
-    width: 250px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 0 6px var(--accent-color), 0 0 10px var(--accent-color);
-    animation: neonPulse 2.5s ease-in-out infinite;
-    transition: all 0.3s ease-in-out;
 }
 
 @keyframes neonPulse {
@@ -793,210 +707,6 @@ section,
         height: auto;
     }
 }
-
-/* Skills Section */
-.skills .skills-title {
-    color: #ffffff;
-    font-size: 26px;
-    margin-bottom: 50px;
-}
-
-.skills .progress-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    box-sizing: border-box;
-}
-
-.skills .progress {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    background-color: var(--border-background-color);
-    align-items: center;
-    text-align: center;
-    border: 1px solid #8f8f8f;
-    border-radius: 30px;
-    margin-bottom: 10px;
-    padding: 25px;
-    box-sizing: border-box;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-    .skills .progress:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        transform: scale(1.02);
-        box-shadow: 0 0 10px rgb(122, 180, 193, 0.8);
-    }
-
-    .skills .progress .skill {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--heading-color);
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        font-family: var(--logo-font);
-    }
-
-    .skills .progress .val {
-        font-size: 12px;
-        color: var(--heading-color);
-    }
-
-.skills .progress-bar-wrap {
-    width: 100%;
-    background: var(--default-color);
-    height: 12px;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
-}
-
-.skills .progress-bar {
-    width: 0px;
-    height: 12px;
-    transition: 1s;
-    background: linear-gradient(90deg,#7ab4c1,#001923);
-    box-shadow: 0 0 15px rgba(0, 170, 146, 0.6), 0 0 25px rgba(21, 31, 43, 0.8);
-    position: relative;
-    border-radius: 20px;
-}
-
-/* Experiences Section */
-.experience .experience-title {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-}
-
-.experience .experience-item {
-    position: relative;
-    padding: 5px 15px;
-    margin-top: -2px;
-    font-weight: bold;
-    border-right: 2px solid var(--accent-color);
-    border-bottom: 2px solid var(--border-background-color);
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-    .experience .experience-item h3 {
-        line-height: 18px;
-        font-size: 1.07rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: var(--heading4-color);
-        margin-bottom: 10px;
-    }
-
-    .experience .experience-item p {
-        font-size: 1rem;
-        color: var(--heading-color);
-        font-weight: bold;
-        margin-top: 5px;
-    }
-
-    .experience .experience-item:last-child {
-        padding-bottom: 0;
-    }
-
-/* Podcast Section */
-.podcast .podcast-card {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 20px;
-    height: 100%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-    .podcast .podcast-card:hover {
-        transform: scale(1.02);
-        background-color: rgba(0, 25, 35, 0.2);
-        box-shadow: 0 0 15px rgba(0, 25, 35, 1);
-    }
-
-    .podcast .podcast-card h2 {
-        font-size: 18px;
-        color: var(--heading-color);
-        margin-bottom: 20px;
-    }
-
-    .podcast .podcast-card .listen-btn {
-        display: block;
-        align-items: center;
-        width: 100%;
-        padding: 8px 16px;
-        background-color: var(--accent-color);
-        color: #fff;
-        border-radius: 20px;
-        font-weight: bold;
-        text-align: center;
-        transition: background 0.3s ease;
-    }
-
-        .podcast .podcast-card .listen-btn:hover {
-            background-color: #007d6e;
-        }
-
-/* Biography Section */
-.bio {
-    color: var(--heading-color);
-    width: 50%;
-}
-
-    .bio h1 {
-        border: 1px solid var(--accent-color);
-        border-radius: 15px;
-        padding: 10px;
-        color: var(--accent-color);
-        width: 100%;
-        border-left: 5px solid var(--accent-color);
-        padding-left: 20px;
-        margin-bottom: 50px;
-    }
-
-    .bio p {
-        font-family: var(--farsi-font-regular);
-        font-size: 18px;
-        text-align: justify;
-    }
-
-.bio-section {
-    margin-bottom: 40px;
-}
-
-    .bio-section h2 {
-        color: var(--accent-color);
-        border-right: 4px solid var(--accent-color);
-        font-size: 24px;
-        border-top: 5px solid var(--border-background-color);
-        padding-right: 5px;
-        padding-top: 5px;
-        margin-bottom: 15px;
-    }
-
-    .bio-section p {
-        border: 1px solid var(--accent-color);
-        background: var(--background-color);
-        border-radius: 15px;
-        padding: 15px;
-        margin-bottom: 25px;
-        font-size: 17px;
-        line-height: 1.8;
-        box-shadow: 0 2px 12px rgba(122, 180, 193, 0.2);
-    }
 
 /* Contact And Service Section */
 .container.row.col-lg-6 {
@@ -1203,14 +913,6 @@ select.custom-input {
             box-shadow: 0 0 8px rgba(122, 180, 193, 0.6);
         }
 
-
-@media (min-width: 768px) {
-    .skills .progress {
-        width: calc(33.33% - 20px);
-    }
-}
-
-
 /* intro text with Fade Transition Effect */
 .intro-text {
     color: #ffffff;
@@ -1256,11 +958,6 @@ svg {
     max-width: 100%;
 }
 
-.animated-svg {
-    width: 100px;
-    height: 100px;
-}
-
 .logo-text-base {
     font-family: var(--logo-font);
     font-size: 72px;
@@ -1302,64 +999,9 @@ svg {
         padding-bottom: 60px;
     }
 
-    .resume-title {
-        text-align: center;
-    }
-
-    .resume, .skills, .form-section {
+    .form-section {
         padding-right: 10px;
         padding-left: 10px;
-    }
-
-    .skills-title {
-        text-align: center;
-    }
-
-    .skills .progress-container {
-        gap: 10px;
-    }
-
-    .skills .progress {
-        max-width: 200px;
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 15px;
-    }
-
-        .skills .progress .skill {
-            font-size: 14px;
-        }
-
-        .skills .progress .val {
-            margin-top: 1.5px;
-            font-size: 10px;
-        }
-
-    .experience {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .experience-title {
-        text-align: center;
-    }
-
-    .podcast {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .bio {
-        width: 100%;
-    }
-
-    .bio-section p {
-        font-size: 16px;
-        margin-top: 30px;
-    }
-
-    .bio-section h2 {
-        padding: 10px;
     }
 }
 

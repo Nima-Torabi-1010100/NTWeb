@@ -1,7 +1,6 @@
 (function () {
     "use strict";
 
-
     /* Header toggle*/
     const headerToggleBtn = document.getElementById('header-toggle');
     const header = document.getElementById('header');
@@ -11,12 +10,10 @@
         headerToggleBtn.classList.toggle('active');
     });
 
-
     /*Scroll to top after page reload*/
     window.addEventListener('load', function () {
         window.scrollTo(0, 0);
     });
-
 
     /*Hide mobile nav on same-page/hash links*/
     document.querySelectorAll('#navmenu a').forEach(navmenu => {
@@ -28,7 +25,6 @@
 
     });
 
-
     /*Toggle mobile nav dropdowns*/
     document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
         navmenu.addEventListener('click', function (e) {
@@ -38,7 +34,6 @@
             e.stopImmediatePropagation();
         });
     });
-
 
     /*Preloader*/
     const preloader = document.querySelector('#preloader');
@@ -51,7 +46,6 @@
             }, 300);
         });
     }
-
 
     /*Scroll top button*/
     let scrollTop = document.querySelector('.scroll-top');
@@ -72,7 +66,6 @@
     window.addEventListener('load', toggleScrollTop);
     document.addEventListener('scroll', toggleScrollTop);
 
-
     /*Animation on scroll function and init*/
     function aosInit() {
         AOS.init({
@@ -84,13 +77,10 @@
     }
     window.addEventListener('load', aosInit);
 
-
     /*Initiate Pure Counter*/
     window.addEventListener('load', function () {
         new PureCounter();
     });
-
-
 
     /*Animate the skills items on reveal*/
     document.addEventListener("DOMContentLoaded", function () {
@@ -110,12 +100,10 @@
         }
     });
 
-
     /*Initiate glightbox*/
     const glightbox = GLightbox({
         selector: '.glightbox'
     });
-
 
     /*Init isotope layout and filters*/
     document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
@@ -147,7 +135,6 @@
         });
 
     });
-
 
     /*Init swiper sliders*/
     function initSwiper() {
@@ -203,13 +190,4 @@
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
-
-    const form = document.getElementById("form");
-    const btn = document.getElementById("submitBtn");
-
-    form.addEventListener("submit", () => {
-        btn.disabled = true;
-        btn.innerText = "در حال ارسال...";
-    });
-
 })();

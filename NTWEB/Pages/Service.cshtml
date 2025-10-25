@@ -82,3 +82,23 @@
         </div>
     </section>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("form");
+            const btn = document.getElementById("submitBtn");
+
+            if (form && btn) {
+                form.addEventListener("submit", function (event) {
+                    if (typeof ($) !== "undefined" && $(form).length && !$(form).valid()) {
+                        event.preventDefault();
+                        return;
+                    }
+                    btn.disabled = true;
+                    btn.innerText = "در حال ارسال...";
+                });
+            }
+        });
+    </script>
+}

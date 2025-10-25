@@ -52,14 +52,34 @@
             </div>
             <div class="social-icons">
                 <a href="https://www.instagram.com/nimatorabi.t/">
-                    <img src="~/images/socialIcons/instagram.svg" alt="instagram.svg" />
+                    <img src="~/images/socialIcons/instagram.svg" loading="lazy" alt="آیکون اینستاگرام برای نیما ترابی" />
                     <span>Instagram</span>
                 </a>
                 <a href="https://t.me/nimatorabi_t">
-                    <img src="~/images/socialIcons/telegram.svg" alt="telegram.svg" />
+                    <img src="~/images/socialIcons/telegram.svg" loading="lazy" alt="آیکون تلگرام برای نیما ترابی" />
                     <span>Telegram</span>
                 </a>
             </div>
         </div>
     </section>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("form");
+            const btn = document.getElementById("submitBtn");
+
+            if (form && btn) {
+                form.addEventListener("submit", function (event) {
+                    if (typeof ($) !== "undefined" && $(form).length && !$(form).valid()) {
+                        event.preventDefault();
+                        return;
+                    }
+                    btn.disabled = true;
+                    btn.innerText = "در حال ارسال...";
+                });
+            }
+        });
+    </script>
+}
