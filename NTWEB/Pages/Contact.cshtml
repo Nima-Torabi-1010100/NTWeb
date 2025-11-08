@@ -10,7 +10,6 @@
         <div class="container section-title">
             <h1>تماس با من</h1>
         </div>
-
         <div class="container row col-lg-6">
             <div>
                 <form id="form" method="post">
@@ -30,18 +29,6 @@
                         <textarea class="form-control custom-input" asp-for="ContactForm.Message" rows="4" placeholder="متن پیام"></textarea>
                         <span asp-validation-for="ContactForm.Message" class="text-danger small"></span>
                     </div>
-                    @if (TempData["OperationStatus"]?.ToString() == "success")
-                    {
-                        <div class="message-success">
-                            <span>@TempData["OperationMessage"]</span>
-                        </div>
-                    }
-                    else if (TempData["OperationStatus"]?.ToString() == "failure")
-                    {
-                        <div class="message-danger">
-                            <span>@TempData["OperationMessage"]</span>
-                        </div>
-                    }
                     <button id="submitBtn" type="submit" class="btn custom-btn w-100">ارسال پیام</button>
                 </form>
             </div>
@@ -63,23 +50,18 @@
         </div>
     </section>
 </div>
+<div id="popupMessage"></div>
 
 @section Scripts {
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("form");
-            const btn = document.getElementById("submitBtn");
-
-            if (form && btn) {
-                form.addEventListener("submit", function (event) {
-                    if (typeof ($) !== "undefined" && $(form).length && !$(form).valid()) {
-                        event.preventDefault();
-                        return;
-                    }
-                    btn.disabled = true;
-                    btn.innerText = "در حال ارسال...";
-                });
-            }
-        });
+    <script src="./js/emailService.js"></script>
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "WebPage",
+           "name": "ارتباط با نیما ترابی",
+           "description": "راه‌های ارتباطی با نیما ترابی؛ ارسال پیام، پشنهاد یا دعوت به همکاری."
+        }
     </script>
 }

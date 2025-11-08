@@ -1,21 +1,30 @@
 (function () {
     "use strict";
 
-    /* Header toggle*/
+    /* ===========================
+       Header Toggle (Mobile Menu)
+       =========================== */
     const headerToggleBtn = document.getElementById('header-toggle');
     const header = document.getElementById('header');
+    const toggleWrapper = document.getElementById('header-toggle-wrapper');
 
+    /* Toggle the mobile header visibility */
     headerToggleBtn.addEventListener('click', () => {
-        header.classList.toggle('header-show');
-        headerToggleBtn.classList.toggle('active');
+        const isActive = header.classList.toggle('header-show');
+        headerToggleBtn.classList.toggle('active', isActive);
+        toggleWrapper.classList.toggle('active', isActive);
     });
 
-    /*Scroll to top after page reload*/
+    /* ===========================
+       Scroll to Top After Reload
+       =========================== */
     window.addEventListener('load', function () {
         window.scrollTo(0, 0);
     });
 
-    /*Hide mobile nav on same-page/hash links*/
+    /* ===========================
+       Hide Mobile Nav on Same-Page Links
+       =========================== */
     document.querySelectorAll('#navmenu a').forEach(navmenu => {
         navmenu.addEventListener('click', () => {
             if (document.querySelector('.header-show')) {
@@ -25,7 +34,9 @@
 
     });
 
-    /*Toggle mobile nav dropdowns*/
+    /* ===========================
+       Mobile Dropdown Toggle
+       =========================== */
     document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
         navmenu.addEventListener('click', function (e) {
             e.preventDefault();
@@ -35,7 +46,9 @@
         });
     });
 
-    /*Preloader*/
+    /* ===========================
+       Preloader Animation
+       =========================== */
     const preloader = document.querySelector('#preloader');
     if (preloader) {
         window.addEventListener('load', () => {
@@ -47,14 +60,19 @@
         });
     }
 
-    /*Scroll top button*/
+    /* ===========================
+       Scroll-to-Top Button
+       =========================== */
     let scrollTop = document.querySelector('.scroll-top');
 
+    /* Show or hide the scroll-to-top button based on scroll position */
     function toggleScrollTop() {
         if (scrollTop) {
             window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
         }
     }
+
+    /* Smoothly scroll to the top when the button is clicked */
     scrollTop.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({
@@ -66,7 +84,9 @@
     window.addEventListener('load', toggleScrollTop);
     document.addEventListener('scroll', toggleScrollTop);
 
-    /*Animation on scroll function and init*/
+    /* ===========================
+       AOS (Animate On Scroll) Initialization
+       =========================== */
     function aosInit() {
         AOS.init({
             duration: 600,
@@ -77,12 +97,16 @@
     }
     window.addEventListener('load', aosInit);
 
-    /*Initiate Pure Counter*/
+    /* ===========================
+       Pure Counter Initialization
+       =========================== */
     window.addEventListener('load', function () {
         new PureCounter();
     });
 
-    /*Animate the skills items on reveal*/
+    /* ===========================
+       Animate Skill Progress Bars
+       =========================== */
     document.addEventListener("DOMContentLoaded", function () {
         let skillsSection = document.querySelector('.skills');
         if (skillsSection) {
@@ -100,12 +124,16 @@
         }
     });
 
-    /*Initiate glightbox*/
+    /* ===========================
+       GLightbox Initialization (Gallery)
+       =========================== */
     const glightbox = GLightbox({
         selector: '.glightbox'
     });
 
-    /*Init isotope layout and filters*/
+    /* ===========================
+       Isotope Layout & Filter
+       =========================== */
     document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
         let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
         let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
@@ -121,6 +149,7 @@
             });
         });
 
+        /* Handle filter buttons click */
         isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
             filters.addEventListener('click', function () {
                 isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
@@ -136,7 +165,9 @@
 
     });
 
-    /*Init swiper sliders*/
+    /* ===========================
+       Swiper Sliders Initialization
+       =========================== */
     function initSwiper() {
         document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
             let config = JSON.parse(
@@ -154,7 +185,9 @@
     window.addEventListener("load", initSwiper);
 
 
-    /*Correct scrolling position upon page load for URLs containing hash links.*/
+    /* ===========================
+      Correct Scroll Position on Hash Links
+      =========================== */
     window.addEventListener('load', function (e) {
         if (window.location.hash) {
             if (document.querySelector(window.location.hash)) {
@@ -171,7 +204,9 @@
     });
 
 
-    /*Navmenu Scrollspy*/
+    /* ===========================
+      Navigation Menu Scrollspy
+      =========================== */
     let navmenulinks = document.querySelectorAll('.navmenu a');
 
     function navmenuScrollspy() {
@@ -190,4 +225,60 @@
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
+
+    /* ===========================
+       Popup Message Positioning
+       =========================== */
+    const popup = document.getElementById("popupMessage");
+    const form = document.getElementById("form");
+
+    if (popup && form) {
+        const formRect = form.getBoundingClientRect();
+        popup.style.left = `${formRect.left + formRect.width / 2}px`;
+        popup.style.maxWidth = `${formRect.width}px`;
+    }
+
+    /* ===========================
+       Footer Image Reveal on Scroll
+       =========================== */
+    const footerImage = document.querySelector(".footer-image");
+    if (footerImage) {
+        let ticking = false;
+
+        function updateFooterImage() {
+            const scrollY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
+            const scrollBottom = docHeight - (scrollY + winHeight);
+
+            if (scrollBottom < 120) {
+                footerImage.classList.add("show");
+            } else {
+                footerImage.classList.remove("show");
+            }
+            ticking = false;
+        }
+
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateFooterImage);
+                ticking = true;
+            }
+        });
+
+        updateFooterImage();
+    }
+
+    /* ===========================
+       FAQ Accordion Toggle
+       =========================== */
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    }
 })();

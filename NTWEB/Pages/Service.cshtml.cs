@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using NTWEB._01_Framework;
 using NTWEB.Models.Service;
 using NTWEB.Services;
 
@@ -10,13 +9,9 @@ namespace NTWEB.Pages
     public class ServiceModel : PageModel
     {
         private readonly EmailService _emailService;
-        private readonly List<string> _projectTypes = new List<string>() { "طراحی سایت" };
+        private readonly List<string> _projectTypes = new List<string>() { "سایت شخصی", "سایت فروشگاهی", "سایت آموزشی" };
         private readonly List<string> _paymentMethods = new List<string>() { "ریال ایران", "بیت کوین", "تتر" };
         [BindProperty] public ServiceForm ServiceForm { get; set; }
-        [TempData]
-        public string OperationMessage { get; set; }
-        [TempData]
-        public string OperationStatus { get; set; }
         public SelectList ProjectTypes { get; private set; }
         public SelectList PaymentMethods { get; private set; }
         public ServiceModel(EmailService emailService)
@@ -30,13 +25,6 @@ namespace NTWEB.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (TempData["LastEmailSent"] is DateTime last &&
-                DateTime.Now - last < TimeSpan.FromSeconds(15))
-            {
-                OperationMessage = $"لطفا کمی بعد دوباره تلاش کنید!";
-                OperationStatus = "failure";
-                return RedirectToPage();
-            }
             ServiceForm.Location = $"{ServiceForm.Country}/{ServiceForm.City}";
             ServiceForm.Message = $"\nProject Type: {ServiceForm.ProjectType}\nCompany Name: {ServiceForm.CompanyName}" +
                     $"\nPhone Number: {ServiceForm.PhoneNumber} \nPayment Method: {ServiceForm.PaymentMethod}" +
@@ -45,21 +33,24 @@ namespace NTWEB.Pages
             ModelState.Remove("ServiceForm.Location");
 
             if (!ModelState.IsValid)
-                return Page();
+                return new JsonResult(new { success = false, message = $"❌ ارسال پیام با خطا مواجه شد" });
+
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("LastEmailSent"))
+                && DateTime.Parse(HttpContext.Session.GetString("LastEmailSent")) is DateTime last
+                && DateTime.Now - last < TimeSpan.FromSeconds(60))
+            {
+                return new JsonResult(new { success = false, message = $"❌ {(int)(60 - (DateTime.Now - last).TotalSeconds)} ثانیه بعد دوباره امتحان کنید" });
+            }
+
             try
             {
                 await _emailService.SendEmailAsync("Service", ServiceForm.Email, ServiceForm.Name, ServiceForm.ProjectName, ServiceForm.Message);
-                TempData["LastEmailSent"] = DateTime.Now;
-
-                OperationMessage = ApplicationMessages.SuccessMessage;
-                OperationStatus = "success";
-                return RedirectToPage();
+                HttpContext.Session.SetString("LastEmailSent", DateTime.Now.ToString());
+                return new JsonResult(new { success = true });
             }
             catch
             {
-                OperationMessage = ApplicationMessages.FailureMessage;
-                OperationStatus = "failure";
-                return RedirectToPage();
+                return new JsonResult(new { success = false, message = "ارسال پیام با خطا مواجه شد ❌" });
             }
         }
     }

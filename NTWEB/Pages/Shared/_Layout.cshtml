@@ -15,6 +15,7 @@
     <link href="~/lib/swiper/swiper.min.css" rel="stylesheet" />
     <link href="~/css/main.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
+    @RenderSection("Schema", required: false)
 </head>
 
 <body class="index-page">
@@ -26,10 +27,12 @@
                     NT
                 </a>
             </div>
-            <div class="header-toggle" id="header-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="header-toggle-wrapper" id="header-toggle-wrapper">
+                <div class="header-toggle" id="header-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
         <a asp-page="Index" class="logo d-flex align-items-center justify-content-center">

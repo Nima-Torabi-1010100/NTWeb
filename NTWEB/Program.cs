@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var razorBuilder = builder.Services.AddRazorPages();
 builder.Configuration.AddEnvironmentVariables();
 var connStr = Environment.GetEnvironmentVariable("MyConnectionString");
+builder.Services.AddSession();
 
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
@@ -51,6 +52,8 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

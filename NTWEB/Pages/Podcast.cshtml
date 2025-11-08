@@ -29,6 +29,19 @@
         </div>
     </div>
 </section>
+<div class="footer-image">
+    <img src="/images/links/contact-link.svg" alt="ارتباط بامن" onclick="location.href='@Url.Page("Contact")'" />
+</div>
 @section Styles {
     <link href="~/css/podcast.min.css" rel="stylesheet" />
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "WebPage",
+           "name": "پادکست‌های نیما ترابی",
+           "description": "مشاهده پادکست‌های ادیت شده توسط نیما ترابی."
+        }
+    </script>
 }

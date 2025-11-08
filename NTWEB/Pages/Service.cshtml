@@ -9,7 +9,7 @@
     <section id="contact" class="form-section section" data-aos="fade-up">
         <div class="hexagon"></div>
         <div class="container section-title">
-            <h1>سفارش پروژه طراحی سایت</h1>
+            <h1>سفارش پروژه</h1>
         </div>
 
         <div class="h2-wrapper">
@@ -17,6 +17,13 @@
             <div class="triangle"></div>
             <h2>طراحی سایت اختصاصی!</h2>
         </div>
+
+        <p class="section-description">
+            در حال حاضر تمرکز اصلی بر توسعه‌ی <strong>بک‌اند وب‌سایت‌ها با ASP.NET</strong> است.
+            در صورتی که طراحی فرانت‌اند یا قالب آماده دارید، می‌توانید آن را ارسال کنید تا بخش بک‌اند سایت بر اساس ساختار موجود پیاده‌سازی شود.
+            به مرور زمان و با گسترش تیم، امکان طراحی کامل رابط کاربری و اجرای پروژه به‌صورت کامل نیز فراهم خواهد شد. اطلاعات بیشتر در  <a href="#faq">سوالات متدوال</a>.
+        </p>
+
         <div class="container row col-lg-6">
             <div>
                 <form id="form" method="post">
@@ -64,41 +71,105 @@
                         </select>
                         <span asp-validation-for="ServiceForm.PaymentMethod" class="text-danger small"></span>
                     </div>
-                    @if (TempData["OperationStatus"]?.ToString() == "success")
-                    {
-                        <div class="message-success">
-                            <span>@TempData["OperationMessage"]</span>
-                        </div>
-                    }
-                    else if (TempData["OperationStatus"]?.ToString() == "failure")
-                    {
-                        <div class="message-danger">
-                            <span>@TempData["OperationMessage"]</span>
-                        </div>
-                    }
-                    <button id="submitBtn" type="submit" class="btn custom-btn w-100">ارسال پیام</button>
+                    <button id="submitBtn" type="submit" class="btn custom-btn w-100">ثبت سفارش</button>
                 </form>
             </div>
         </div>
     </section>
+
+    <section id="faq" class="container row col-lg-6">
+        <h2 class="faq-title">سؤالات متداول</h2>
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>فرآیند انجام پروژه به چه صورت است؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    پس از ثبت درخواست، جلسه‌ای جهت بررسی جزئیات پروژه برگزار می‌شود (به‌صورت حضوری یا آنلاین از طریق Google Meet).
+                    سپس قرارداد رسمی شامل زمان‌بندی و شرایط همکاری از طریق ایمیل ارسال شده و پس از تأیید، روند اجرا آغاز می‌گردد.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>آیا طراحی قالب سایت توسط شما انجام می‌شود؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    در حال حاضر تمرکز اصلی بر توسعه‌ی بک‌اند با استفاده از ASP.NET است.
+                    در صورتی که قالب یا طراحی فرانت‌اند سایت آماده باشد، پیاده‌سازی بخش بک‌اند روی همان ساختار انجام می‌شود.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>پروژه در کجا قابل مشاهده و تست خواهد بود؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    پس از اتمام کدنویسی، پروژه بر روی یک <strong>ساب‌دامین تستی</strong> قرار می‌گیرد تا کارفرما بتواند عملکرد بخش‌های مختلف را بررسی کند.
+                    پس از یک دوره‌ی تست یک‌هفته‌ای و تأیید نهایی، سایت بر روی دامنه‌ی اصلی منتشر می‌شود.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>در صورت وجود خطا یا نیاز به تغییر پس از تحویل چه می‌شود؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    به‌مدت ۷ روز پس از تحویل نهایی، پشتیبانی کامل برای رفع ایرادات احتمالی ارائه می‌شود
+                    تا از عملکرد صحیح تمام بخش‌ها اطمینان حاصل گردد.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>نحوه‌ی آموزش استفاده از سایت به چه شکل است؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    پس از نهایی شدن پروژه، آموزش کامل استفاده از بخش‌های مختلف سایت در اختیار کارفرما قرار می‌گیرد
+                    تا بتواند به‌صورت مستقل از سیستم استفاده کند.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>در طول پروژه چطور از روند کار مطلع خواهم شد؟</span>
+                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+            </button>
+            <div class="faq-answer">
+                <p>
+                    پس از هر تغییر یا مرحله‌ی مهم در پروژه، گزارش و به‌روزرسانی مربوطه از طریق ایمیل برای کارفرما ارسال می‌شود.
+                </p>
+            </div>
+        </div>
+    </section>
+
 </div>
+<div id="popupMessage"></div>
 
 @section Scripts {
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("form");
-            const btn = document.getElementById("submitBtn");
-
-            if (form && btn) {
-                form.addEventListener("submit", function (event) {
-                    if (typeof ($) !== "undefined" && $(form).length && !$(form).valid()) {
-                        event.preventDefault();
-                        return;
-                    }
-                    btn.disabled = true;
-                    btn.innerText = "در حال ارسال...";
-                });
-            }
-        });
+    <script src="./js/emailService.js"></script>
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "WebPage",
+           "name": "سفارش پروژه طراحی سایت",
+           "description": "سفارش پروژه طراحی سایت حرفه‌ای و اختصاصی."
+        }
     </script>
 }

@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MimeKit;
-using MailKit.Net.Smtp;
-using NTWEB._01_Framework;
 using NTWEB.Models.Contact;
 using NTWEB.Services;
 
@@ -12,10 +9,6 @@ namespace NTWEB.Pages
     {
         private readonly EmailService _emailService;
         [BindProperty] public ContactForm ContactForm { get; set; }
-        [TempData]
-        public string OperationMessage { get; set; }
-        [TempData]
-        public string OperationStatus { get; set; }
         public ContactModel(EmailService emailService)
         {
             _emailService = emailService;
@@ -25,30 +18,26 @@ namespace NTWEB.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (TempData["LastEmailSent"] is DateTime last &&
-                DateTime.Now - last < TimeSpan.FromSeconds(60))
+            if (!ModelState.IsValid)
+                return new JsonResult(new { success = false, message = $"❌ ارسال پیام با خطا مواجه شد" });
+
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("LastEmailSent"))
+                && DateTime.Parse(HttpContext.Session.GetString("LastEmailSent")) is DateTime last
+                && DateTime.Now - last < TimeSpan.FromSeconds(60))
             {
-                OperationMessage = $"لطفا کمی بعد دوباره تلاش کنید!";
-                OperationStatus = "failure";
-                return RedirectToPage();
+                return new JsonResult(new { success = false, message = $"❌ {(int)(60 - (DateTime.Now - last).TotalSeconds)} ثانیه بعد دوباره امتحان کنید" });
             }
 
-            if (!ModelState.IsValid)
-                return Page();
             try
             {
                 await _emailService.SendEmailAsync("Contact", ContactForm.Email, ContactForm.Name, ContactForm.Subject, ContactForm.Message);
-                TempData["LastEmailSent"] = DateTime.Now;
-
-                OperationMessage = ApplicationMessages.SuccessMessage;
-                OperationStatus = "success";
-                return RedirectToPage();
+                HttpContext.Session.SetString("LastEmailSent", DateTime.Now.ToString());
+                return new JsonResult(new { success = true });
             }
+
             catch
             {
-                OperationMessage = ApplicationMessages.FailureMessage;
-                OperationStatus = "failure";
-                return RedirectToPage();
+                return new JsonResult(new { success = false, message = "ارسال پیام با خطا مواجه شد ❌" });
             }
         }
     }

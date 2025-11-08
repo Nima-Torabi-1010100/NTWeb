@@ -155,6 +155,19 @@
         </div>
     </section>
 </div>
+<div class="footer-image">
+    <img src="/images/links/service-link.svg" alt="سفارش پروژه" onclick="location.href='@Url.Page("Service")'" />
+</div>
 @section Styles{
-    <link href="~/css/resume.min.css" rel="stylesheet" />
+    <link href="~/css/resume.css" rel="stylesheet" />
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "WebPage",
+           "name": "رزومه نیما ترابی",
+           "description": "مشاهده رزومه و تجربیات کاری نیما ترابی."
+        }
+    </script>
 }

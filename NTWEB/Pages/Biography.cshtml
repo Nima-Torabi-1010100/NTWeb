@@ -37,6 +37,19 @@
         </div>
     </div>
 </section>
+<div class="footer-image">
+    <img src="/images/links/portfolio-link.svg" alt="نمونه کارها" onclick="location.href='@Url.Page("Resume")'" />
+</div>
 @section Styles {
     <link href="~/css/biography.min.css" rel="stylesheet" />
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "WebPage",
+           "name": "بیوگرافی نیما ترابی",
+           "description": "بیوگرافی کوتاهی از نیما ترابی."
+        }
+    </script>
 }

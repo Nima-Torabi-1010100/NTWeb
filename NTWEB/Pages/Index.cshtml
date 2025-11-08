@@ -21,29 +21,50 @@
                 <span class="intro-text"></span>
             </div>
         </div>
-
     </section>
-
-    <nav class="quick-access">
-        <ul>
-            <li>
-                <a asp-page="Resume">
-                    <i class="bi bi-file-person-fill navicon"></i>
-                    <span class="tooltip">رزومه</span>
-                </a>
-            </li>
-            <li>
-                <a asp-page="Biography">
-                    <i class="bi bi-person navicon"></i>
-                    <span class="tooltip">بیوگرافی</span>
-                </a>
-            </li>
-            <li>
-                <a asp-page="Service">
-                    <i class="bi bi-check2-square navicon"></i>
-                    <span class="tooltip">سفارش پروژه</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
+        <div class="container">
+            <div class="about-heading">
+                <h1>درباره من</h1>
+            </div>
+            <p class="about-text">
+                سلام من نیمام، خوره‌ی کامپیوتر و توسعه دهنده بک‌اند با تمرکز بر ASP.NET.برای آشنایی بیشتر با من، یه دوری تو سایتم بزن!
+            </p>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 نیما ترابی. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
 </div>
+@section Styles {
+    <link href="~/css/home.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({ once: true });
+            const about = document.querySelector("#about");
+            setTimeout(() => {
+                about.classList.add("aos-animate");
+            }, 150);
+        });
+    </script>
+}
+@section Schema {
+    <script type="application/ld+json">
+        {
+           "@@context": "https://schema.org",
+           "@@type" : "Person",
+           "name": "نیما ترابی",
+           "jobTitle": "توسعه دهنده بک اند ASP.NET",
+           "url": "https://test/ir",
+           "description": "برنامه نویس وب با تمرکز بر ASP.NET و علاقه مند به موسیقی.",
+           "sameAs":[
+           "https://github.com/Nima-Torabi-1010100",
+           "https://www.linkedin.com/in/nima-torabi-9369732b9/"
+           ]
+        }
+    </script>
+}
