@@ -1,0 +1,16 @@
+{
+  "name": "Nima Torabi Portfolio",
+  "short_name": "NimaTorabi",
+  "description": "وب اپلیکیشن نیما ترابی، برنامه نویس بک‌اند ASP.NET",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f100e",
+  "theme_color": "#0f100e",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

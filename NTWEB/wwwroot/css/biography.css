@@ -15,12 +15,6 @@
         margin-bottom: 50px;
     }
 
-    .bio p {
-        font-family: var(--farsi-font-regular);
-        font-size: 18px;
-        text-align: justify;
-    }
-
 .bio-section {
     margin-bottom: 40px;
 }
@@ -36,12 +30,14 @@
     }
 
     .bio-section p {
+        font-family: var(--farsi-font-regular);
         border: 1px solid var(--accent-color);
         background: var(--background-color);
         border-radius: 15px;
         padding: 15px;
         margin-bottom: 25px;
-        font-size: 17px;
+        font-size: clamp(16px, 2vw, 18px);
+        text-align: justify;
         line-height: 1.8;
         box-shadow: 0 2px 12px rgba(122, 180, 193, 0.2);
     }
@@ -52,7 +48,6 @@
     }
 
     .bio-section p {
-        font-size: 16px;
         margin-top: 30px;
     }
 

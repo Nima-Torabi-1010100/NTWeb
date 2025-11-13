@@ -25,13 +25,12 @@
     /* ===========================
        Hide Mobile Nav on Same-Page Links
        =========================== */
-    document.querySelectorAll('#navmenu a').forEach(navmenu => {
-        navmenu.addEventListener('click', () => {
-            if (document.querySelector('.header-show')) {
-                headerToggle();
-            }
+    document.querySelectorAll('#navmenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            header.classList.remove('header-show');
+            headerToggleBtn.classList.remove('active');
+            toggleWrapper.classList.remove('active');
         });
-
     });
 
     /* ===========================
