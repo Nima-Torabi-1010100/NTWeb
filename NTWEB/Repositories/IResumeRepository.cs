@@ -8,6 +8,5 @@ namespace NTWEB.Repositories
         Task<List<Language>> GetLanguagesAsync();
         Task<List<Skill>> GetSkillsAsync();
         Task<List<WorkExperience>> GetWorkExperiencesAsync();
-        Task<ProfileInfo> GetProfileInfoAsync();
     }
 }

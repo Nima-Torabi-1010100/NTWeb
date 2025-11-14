@@ -10,7 +10,7 @@ namespace NTWEB.Pages
     {
         private readonly EmailService _emailService;
         private readonly List<string> _projectTypes = new List<string>() { "سایت شخصی", "سایت فروشگاهی", "سایت آموزشی" };
-        private readonly List<string> _paymentMethods = new List<string>() { "ریال ایران", "بیت کوین", "تتر" };
+        private readonly List<string> _paymentMethods = new List<string>() { "ریال ایران", "تتر" };
         [BindProperty] public ServiceForm ServiceForm { get; set; }
         public SelectList ProjectTypes { get; private set; }
         public SelectList PaymentMethods { get; private set; }

@@ -31,17 +31,5 @@ namespace NTWEB.Repositories
         {
             return await _context.WorkExperiences.ToListAsync();
         }
-        public async Task<ProfileInfo> GetProfileInfoAsync()
-        {
-            return new ProfileInfo
-            {
-                FullName = _configuration["FullName"],
-                BirthDate = _configuration["BirthDate"],
-                MobileNumber = _configuration["MobileNumber"],
-                Location = _configuration["Location"],
-                MilitaryStatus = _configuration["MilitaryStatus"],
-                Email = _configuration["Email"]
-            };
-        }
     }
 }

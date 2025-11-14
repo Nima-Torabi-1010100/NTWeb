@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using NTWEB;
 using NTWEB.Middleware;
@@ -11,22 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var razorBuilder = builder.Services.AddRazorPages();
-builder.Configuration.AddEnvironmentVariables();
-var connStr = Environment.GetEnvironmentVariable("MyConnectionString");
 builder.Services.AddSession();
 
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 builder.Services.AddSingleton<EmailService>();
 
-builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(connStr));
+builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection_NT")));
 
 builder.Services.AddResponseCompression(options => { options.EnableForHttps = true; });
-
-if (builder.Environment.IsDevelopment())
-{
-    razorBuilder.AddRazorRuntimeCompilation();
-}
 
 var app = builder.Build();
 

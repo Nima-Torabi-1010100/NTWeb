@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using NTWEB._01_Framework;
 using NTWEB.Models.Resume;
 using NTWEB.Repositories;
 
@@ -22,7 +23,15 @@ namespace NTWEB.Pages
             Languages = await _resumeRepository.GetLanguagesAsync() ?? new List<Language>();
             Skills = await _resumeRepository.GetSkillsAsync() ?? new List<Skill>();
             Experiences = await _resumeRepository.GetWorkExperiencesAsync() ?? new List<WorkExperience>();
-            ProfileInfo = await _resumeRepository.GetProfileInfoAsync();
+            ProfileInfo = new ProfileInfo
+            {
+                FullName = Variables.FullName,
+                BirthDate = Variables.BirthDate,
+                Location = Variables.Location,
+                MobileNumber = Variables.MobileNumber,
+                Email = Variables.Email,
+                MilitaryStatus = Variables.MilitaryStatus
+            };
         }
     }
 }
