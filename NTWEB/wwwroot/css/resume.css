@@ -169,6 +169,10 @@
 }
 
 @media (max-width: 768px) {
+    .profile-img {
+        width: 65%;
+    }
+
     .resume, .skills {
         padding-right: 10px;
         padding-left: 10px;

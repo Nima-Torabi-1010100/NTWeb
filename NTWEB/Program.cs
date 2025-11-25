@@ -11,12 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var razorBuilder = builder.Services.AddRazorPages();
 builder.Services.AddSession();
-
+var conn = Environment.GetEnvironmentVariable("NTConnection");
+if (string.IsNullOrWhiteSpace(conn))
+    throw new Exception("Database connection string not found.");
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 builder.Services.AddSingleton<EmailService>();
 
-builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection_NT")));
+builder.Services.AddDbContext<NTWEBContext>(options => options.UseSqlServer(conn));
 
 builder.Services.AddResponseCompression(options => { options.EnableForHttps = true; });
 

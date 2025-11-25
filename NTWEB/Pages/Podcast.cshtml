@@ -18,20 +18,20 @@
             @foreach (var item in Model.Podcasts)
             {
                 <div class="col-lg-4 col-md-6">
-                    <div class="podcast-card">
+                    <article class="podcast-card">
                         <div>
                             <h2>@item.Title</h2>
-                            <a href="@item.Url" class="listen-btn" target="_blank">بشنوید :)</a>
+                            <a href="@item.Url" class="listen-btn" target="_blank" rel="noopener noreferrer">گوش دادن</a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             }
         </div>
     </div>
 </section>
-<div class="footer-image">
-    <img src="/images/links/contact-link.svg" alt="ارتباط بامن" onclick="location.href='@Url.Page("Contact")'" />
-</div>
+<a href="@Url.Page("Contact")" class="footer-image">
+    <img src="/images/links/contact-link.svg" alt="ارتباط با من" />
+</a>
 @section Styles {
     <link rel="stylesheet" href="~/css/podcast.min.css">
 }
@@ -39,9 +39,14 @@
     <script type="application/ld+json">
         {
            "@@context": "https://schema.org",
-           "@@type" : "WebPage",
+           "@@type" : "CollectionPage",
            "name": "پادکست‌های نیما ترابی",
-           "description": "مشاهده پادکست‌های ادیت شده توسط نیما ترابی."
+           "description": "مشاهده پادکست‌های ادیت شده توسط نیما ترابی.",
+           "url": "https://nimatorabi.ir/podcast",
+           "about": {
+               "@@type": "Person",
+               "name": "نیما ترابی"
+           }
         }
     </script>
 }

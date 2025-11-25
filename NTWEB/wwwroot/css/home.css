@@ -34,6 +34,7 @@
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
         background-color: #0f100e;
+        object-position: center 30%;
     }
 
     .intro .top-text {
@@ -99,20 +100,6 @@
             opacity: 0;
             transform: translateY(-10px);
         }
-
-.footer {
-    background-color: var(--background-color);
-    border-top: 1px solid rgb(255 255 255 / 0.1);
-    text-align: center;
-    padding: 15px 0;
-    font-family: var(--farsi-font-regular);
-    color: #fff;
-    font-size: 10px;
-}
-
-    .footer p {
-        margin: 0;
-    }
 
 .quick-access {
     display: none;

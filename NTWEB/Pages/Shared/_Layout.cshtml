@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Nima | @ViewData["Title"]</title>
+    <title>Nima Torabi | @ViewData["Title"]</title>
     <meta name="description" content="@ViewData["Description"]">
     <meta property="og:title" content="Nima Torabi | ASP.NET Developer">
     <meta property="og:description" content="برنامه‌نویس بک‌اند ASP.NET و علاقه‌مند به طراحی وب و موسیقی.">
@@ -18,7 +18,13 @@
     <meta name="twitter:description" content="برنامه‌نویس بک‌اند ASP.NET و علاقه‌مند به طراحی وب و موسیقی.">
     <meta name="twitter:image" content="https://nimatorabi.ir/images/intro.jpg">
 
-    <link rel="icon" href="~/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="~/images/android-chrome-512x512.png">
+
+    <link rel="icon" type="image/png" sizes="180x180" href="~/images/apple-touch-icon.png">
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/lib/aos/aos.css">
@@ -31,7 +37,6 @@
 </head>
 
 <body class="index-page">
-
     <header id="header" class="header dark-background d-flex flex-column">
         <div class="top-bar">
             <div class="site-name">
@@ -75,7 +80,6 @@
             <a href="https://www.linkedin.com/in/nima-torabi-9369732b9/" class="bi bi-linkedin" title="Linkedin"></a>
             <a href="https://t.me/nimatorabi_t" class="bi bi-telegram" title="Telegram"></a>
         </div>
-
     </header>
 
     <main class="main">
@@ -105,9 +109,9 @@
 
     <script src="~/js/main.min.js"></script>
 
-    <partial name="_ValidationScriptsPartial">
+    <partial name="_ValidationScriptsPartial" />
 
-        @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 
 </body>
 </html>

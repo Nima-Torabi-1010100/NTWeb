@@ -6,11 +6,9 @@ namespace NTWEB.Repositories
     public class ResumeRepository : IResumeRepository
     {
         private readonly NTWEBContext _context;
-        private readonly IConfiguration _configuration;
-        public ResumeRepository(NTWEBContext context, IConfiguration configuration)
+        public ResumeRepository(NTWEBContext context)
         {
             _context = context;
-            _configuration = configuration;
         }
         public async Task<List<Education>> GetEducationsAsync()
         {
@@ -26,7 +24,6 @@ namespace NTWEB.Repositories
         {
             return await _context.Skills.ToListAsync();
         }
-
         public async Task<List<WorkExperience>> GetWorkExperiencesAsync()
         {
             return await _context.WorkExperiences.ToListAsync();

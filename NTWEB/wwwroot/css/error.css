@@ -1,0 +1,30 @@
+﻿.error-page {
+    background-color: var(--background-color);
+    color: var(--contrast-color);
+    padding: 50px 20px;
+    min-height: 80vh;
+    text-align: center;
+}
+
+    .error-page h1 {
+        color: var(--accent-color);
+        margin-bottom: 10px;
+    }
+
+    .error-page h2 {
+        color: var(--heading-color);
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .error-page p {
+        color: var(--heading4-color);
+        line-height: 1.8;
+    }
+
+    .error-page code {
+        background: var(--border-background-color);
+        padding: 5px 10px;
+        border-radius: 6px;
+        color: var(--contrast-color);
+    }

@@ -5,27 +5,27 @@
     ViewData["Description"] = " سفارش طراحی سایت اختصاصی با نیما ترابی؛ اگه دنبال طراحی یه سایت اختصاصی و حرفه‌ای هستی، من، نیما ترابی، پروژت رو با دقت بالا، خلاقیت و جدیدترین تکنولوژی‌ها انجام میدم. همین حالا درخواستت رو ثبت کن!";
     ViewData["ActivePage"] = "ServiceRequest";
 }
-<div>
-    <section id="contact" class="form-section section" data-aos="fade-up">
-        <div class="hexagon"></div>
-        <div class="container section-title">
-            <h1>سفارش پروژه</h1>
-        </div>
+<section id="contact" class="form-section section" data-aos="fade-up">
+    <div class="hexagon"></div>
+    <div class="container section-title">
+        <h1>سفارش پروژه</h1>
+    </div>
 
-        <div class="h2-wrapper">
-            <div class="circle"></div>
-            <div class="triangle"></div>
-            <h2>طراحی سایت اختصاصی!</h2>
-        </div>
+    <div class="h2-wrapper">
+        <div class="circle"></div>
+        <div class="triangle"></div>
+        <h2>طراحی سایت اختصاصی!</h2>
+    </div>
 
-        <p class="section-description">
-            در حال حاضر تمرکز اصلی بر توسعه‌ی <strong>بک‌اند وب‌سایت‌ها با ASP.NET</strong> است.
-            در صورتی که طراحی فرانت‌اند یا قالب آماده دارید، می‌توانید آن را ارسال کنید تا بخش بک‌اند سایت بر اساس ساختار موجود پیاده‌سازی شود.
-            به مرور زمان و با گسترش تیم، امکان طراحی کامل رابط کاربری و اجرای پروژه به‌صورت کامل نیز فراهم خواهد شد. اطلاعات بیشتر در  <a href="#faq">سوالات متدوال</a>.
-        </p>
+    <p class="section-description">
+        در حال حاضر تمرکز اصلی بر توسعه‌ی <strong>بک‌اند وب‌سایت‌ها با ASP.NET</strong> است.
+        در صورتی که طراحی فرانت‌اند یا قالب آماده دارید، می‌توانید آن را ارسال کنید تا بخش بک‌اند سایت بر اساس ساختار موجود پیاده‌سازی شود.
+        به مرور زمان و با گسترش تیم، امکان طراحی کامل رابط کاربری و اجرای پروژه به‌صورت کامل نیز فراهم خواهد شد. اطلاعات بیشتر در  <a href="#faq">سوالات متدوال</a>.
+    </p>
 
-        <div class="container row col-lg-6">
-            <div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
                 <form id="form" method="post">
                     <div class="mb-3">
                         <input type="text" class="form-control custom-input" asp-for="ServiceForm.Name" placeholder="نام و نام خانوادگی">
@@ -75,89 +75,95 @@
                 </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="faq" class="container row col-lg-6">
-        <h2 class="faq-title">سؤالات متداول</h2>
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>فرآیند انجام پروژه به چه صورت است؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    پس از ثبت درخواست، جلسه‌ای جهت بررسی جزئیات پروژه برگزار می‌شود (به‌صورت حضوری یا آنلاین از طریق Google Meet).
-                    سپس قرارداد رسمی شامل زمان‌بندی و شرایط همکاری از طریق ایمیل ارسال شده و پس از تأیید، روند اجرا آغاز می‌گردد.
-                </p>
+<section id="faq">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2 class="faq-title">سؤالات متداول</h2>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>فرآیند انجام پروژه به چه صورت است؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            پس از ثبت درخواست، جلسه‌ای جهت بررسی جزئیات پروژه برگزار می‌شود (به‌صورت حضوری یا آنلاین از طریق Google Meet).
+                            سپس قرارداد رسمی شامل زمان‌بندی و شرایط همکاری از طریق ایمیل ارسال شده و پس از تأیید، روند اجرا آغاز می‌گردد.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>آیا طراحی قالب سایت توسط شما انجام می‌شود؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            در حال حاضر تمرکز اصلی بر توسعه‌ی بک‌اند با استفاده از ASP.NET است.
+                            در صورتی که قالب یا طراحی فرانت‌اند سایت آماده باشد، پیاده‌سازی بخش بک‌اند روی همان ساختار انجام می‌شود.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>پروژه در کجا قابل مشاهده و تست خواهد بود؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            پس از اتمام کدنویسی، پروژه بر روی یک <strong>ساب‌دامین تستی</strong> قرار می‌گیرد تا کارفرما بتواند عملکرد بخش‌های مختلف را بررسی کند.
+                            پس از یک دوره‌ی تست یک‌هفته‌ای و تأیید نهایی، سایت بر روی دامنه‌ی اصلی منتشر می‌شود.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>در صورت وجود خطا یا نیاز به تغییر پس از تحویل چه می‌شود؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            به‌مدت ۷ روز پس از تحویل نهایی، پشتیبانی کامل برای رفع ایرادات احتمالی ارائه می‌شود
+                            تا از عملکرد صحیح تمام بخش‌ها اطمینان حاصل گردد.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>نحوه‌ی آموزش استفاده از سایت به چه شکل است؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            پس از نهایی شدن پروژه، آموزش کامل استفاده از بخش‌های مختلف سایت در اختیار کارفرما قرار می‌گیرد
+                            تا بتواند به‌صورت مستقل از سیستم استفاده کند.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <button class="faq-question" itemprop="name">
+                        <span>در طول پروژه چطور از روند کار مطلع خواهم شد؟</span>
+                        <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
+                    </button>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            پس از هر تغییر یا مرحله‌ی مهم در پروژه، گزارش و به‌روزرسانی مربوطه از طریق ایمیل برای کارفرما ارسال می‌شود.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>آیا طراحی قالب سایت توسط شما انجام می‌شود؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    در حال حاضر تمرکز اصلی بر توسعه‌ی بک‌اند با استفاده از ASP.NET است.
-                    در صورتی که قالب یا طراحی فرانت‌اند سایت آماده باشد، پیاده‌سازی بخش بک‌اند روی همان ساختار انجام می‌شود.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>پروژه در کجا قابل مشاهده و تست خواهد بود؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    پس از اتمام کدنویسی، پروژه بر روی یک <strong>ساب‌دامین تستی</strong> قرار می‌گیرد تا کارفرما بتواند عملکرد بخش‌های مختلف را بررسی کند.
-                    پس از یک دوره‌ی تست یک‌هفته‌ای و تأیید نهایی، سایت بر روی دامنه‌ی اصلی منتشر می‌شود.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>در صورت وجود خطا یا نیاز به تغییر پس از تحویل چه می‌شود؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    به‌مدت ۷ روز پس از تحویل نهایی، پشتیبانی کامل برای رفع ایرادات احتمالی ارائه می‌شود
-                    تا از عملکرد صحیح تمام بخش‌ها اطمینان حاصل گردد.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>نحوه‌ی آموزش استفاده از سایت به چه شکل است؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    پس از نهایی شدن پروژه، آموزش کامل استفاده از بخش‌های مختلف سایت در اختیار کارفرما قرار می‌گیرد
-                    تا بتواند به‌صورت مستقل از سیستم استفاده کند.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                <span>در طول پروژه چطور از روند کار مطلع خواهم شد؟</span>
-                <img src="/icons/down-arrow.svg" alt="باز کردن" class="faq-icon" />
-            </button>
-            <div class="faq-answer">
-                <p>
-                    پس از هر تغییر یا مرحله‌ی مهم در پروژه، گزارش و به‌روزرسانی مربوطه از طریق ایمیل برای کارفرما ارسال می‌شود.
-                </p>
-            </div>
-        </div>
-    </section>
-
-</div>
+    </div>
+</section>
 <div id="popupMessage"></div>
 @section Styles {
     <link rel="stylesheet" href="~/css/form.min.css">
@@ -170,9 +176,25 @@
     <script type="application/ld+json">
         {
            "@@context": "https://schema.org",
-           "@@type" : "WebPage",
+           "@@type" : "Service",
            "name": "سفارش پروژه طراحی سایت",
-           "description": "سفارش پروژه طراحی سایت حرفه‌ای و اختصاصی."
+           "description": "سفارش پروژه طراحی سایت حرفه‌ای و اختصاصی.",
+           "provider": {
+               "@@type": "Person",
+               "name": "نیما ترابی",
+               "jobTitle": "توسعه‌دهنده بک‌اند ASP.NET",
+               "url": "https://nimatorabi.ir",
+               "email": "nimatorabi.t@gmail.com",
+               "sameAs": [
+               "https://github.com/Nima-Torabi-1010100",
+               "https://www.linkedin.com/in/nima-torabi-9369732b9/"
+               ]
+           },
+           "availableChannel": {
+               "@@type": "ServiceChannel",
+               "serviceUrl": "https://nimatorabi.ir/service",
+               "availableLanguage": ["fa", "en"]
+           }
         }
     </script>
 }

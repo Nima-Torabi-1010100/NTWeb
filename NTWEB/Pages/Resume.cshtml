@@ -5,7 +5,6 @@
     ViewData["Description"] = "رزومه نیما ترابی؛ از این صفحه می‌تونی رزومه و تجربیات کاری من رو ببینی!";
     ViewData["ActivePage"] = "Resume";
 }
-<div>
     <section id="resume" class="resume section" data-aos="fade-up" data-aos-delay="100">
         <div class="container section-title">
             <h1>رزومه من</h1>
@@ -51,7 +50,9 @@
             </div>
         </div>
     </section>
+
     <hr class="section-divider-top" />
+
     <section id="skills" class="skills section" data-aos="fade-left" data-aos-delay="100">
         <div class="container">
             <div class="row align-items-center">
@@ -67,7 +68,12 @@
                         <div class="progress">
                             <span class="skill">@Model.Skills[i].Title</span>
                             <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="@Model.Skills[i].Progress" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" 
+                                     role="progressbar" 
+                                     aria-label="@Model.Skills[i].Title"
+                                     aria-valuenow="@Model.Skills[i].Progress"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
                                     <span class="val">@Model.Skills[i].Progress%</span>
                                 </div>
                             </div>
@@ -82,13 +88,15 @@
             </div>
         </div>
     </section>
+
     <hr class="section-divider-top" />
+
     <section id="languages" class="experience section" data-aos="fade-left" data-aos-delay="100">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3 d-none d-lg-block"></div>
                 <div class="col-lg-9">
-                    <h2 class="experience-title">زبان ها</h2>
+                    <h2 class="experience-title">زبان‌ها</h2>
                     <div class="row">
                         @for(int i=0;i<Model.Languages.Count;i++)
                         {
@@ -96,10 +104,10 @@
                             {
                                 @:<div class="col-lg-6">
                             }
-                            <div class="experience-item pb-0">
+                            <article class="experience-item pb-0">
                                 <h3>@Model.Languages[i].Title</h3>
                                 <p>سطح: @Model.Languages[i].Level</p>
-                            </div>
+                            </article>
                             if(i % 2 != 0 || Model.Languages.Count-1 == i)
                             {
                                 @:</div>
@@ -110,29 +118,33 @@
             </div>
         </div>
     </section>
+
     <hr class="section-divider-top" />
+
     <section id="education" class="experience section" data-aos="fade-left" data-aos-delay="100">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3 d-none d-lg-block"></div>
-                @foreach (var item in Model.Educations)
-                {
-                    <div class="col-lg-9">
-                        <h2 class="experience-title">تحصیلات</h2>
+                <div class="col-lg-9">
+                    <h2 class="experience-title">تحصیلات</h2>
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="experience-item pb-0">
-                                <h3>@item.Degree | @item.School</h3>
-                                <p>@item.Year</p>
+                        @foreach (var item in Model.Educations)
+                        {
+                            <div class="col-lg-6">
+                                <article class="experience-item pb-0">
+                                    <h3>@item.Degree | @item.School</h3>
+                                    <p>@item.Year</p>
+                                </article>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
-                }
             </div>
         </div>
     </section>
+
     <hr class="section-divider-top" />
+    
     <section id="experiences" class="experience section" data-aos="fade-left" data-aos-delay="100">
         <div class="container">
             <div class="row align-items-center">
@@ -142,11 +154,11 @@
                     <div class="row">
                         @for(int i=0;i<Model.Experiences.Count;i++)
                         {
-                           <div>
-                               <div class="experience-item pb-0">
-                                   <h3>@Model.Experiences[i].JobTitle | @Html.Raw(@Model.Experiences[i].CompanyName)</h3>
-                                   <p>@Model.Experiences[i].Description | <a asp-page="Podcast">مشاهده پادکست‌ها</a></p>
-                               </div>
+                            <div class="col-lg-12">
+                                <article class="experience-item pb-0">
+                                    <h3>@Model.Experiences[i].JobTitle | @Html.Raw(@Model.Experiences[i].CompanyName)</h3>
+                                    <p>@Model.Experiences[i].Description | <a asp-page="Podcast">مشاهده پادکست‌ها</a></p>
+                                </article>
                             </div>
                         }
                     </div>
@@ -154,10 +166,9 @@
             </div>
         </div>
     </section>
-</div>
-<div class="footer-image">
-    <img src="/images/links/service-link.svg" alt="سفارش پروژه" onclick="location.href='@Url.Page("Service")'" />
-</div>
+<a @Url.Page("Service") class="footer-image">
+    <img src="/images/links/service-link.svg" alt="سفارش پروژه" />
+</a>
 @section Styles{
     <link  rel="stylesheet" href="~/css/resume.min.css">
 }
@@ -165,9 +176,19 @@
     <script type="application/ld+json">
         {
            "@@context": "https://schema.org",
-           "@@type" : "WebPage",
+           "@@type" : "ProfilePage",
            "name": "رزومه نیما ترابی",
-           "description": "مشاهده رزومه و تجربیات کاری نیما ترابی."
+           "description": "مشاهده رزومه و تجربیات کاری نیما ترابی.",
+           "url": "https://nimatorabi.ir/resume",
+           "mainEntity": {
+               "@@type": "Person",
+               "name": "نیما ترابی",
+               "jobTitle": "توسعه‌دهنده بک‌اند ASP.NET",
+               "alumniOf": @Json.Serialize(Model.Educations.Select(e => new { 
+                   Type = "EducationalOrganization", 
+                   Name = e.School 
+               }))
+           }
         }
     </script>
 }

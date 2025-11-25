@@ -5,39 +5,32 @@
     ViewData["Description"] = "من نیما ترابی‌ام، بک اند دولوپر ASP.NET. اینجا می‌تونی رزومه، پروژه‌ها و نمونه کارهای من رو ببینی و باهام در ارتباط باشی.";
     ViewData["ActivePage"] = "Index";
 }
-<div>
-    <section id="intro" class="intro section">
-        <div class="top-text">
-            <span>CODE • CREATE • CONNECT</span>
-            <span>PERSONAL SHOWCASE</span>
-            <span><span class="number-font">2025</span> PORTFOLIO</span>
-            <span class="number-font">2025</span>
+<section id="intro" class="intro section">
+    <div class="top-text">
+        <span>CODE • CREATE • CONNECT</span>
+        <span>PERSONAL SHOWCASE</span>
+        <span><span class="number-font">2025</span> PORTFOLIO</span>
+        <span class="number-font">2025</span>
+    </div>
+    <img src="~/images/intro.jpg" alt="تصویر معرفی نیما ترابی" class="intro-img" data-aos="fade-in">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="intro-text-container">
+            <span class="intro-text"></span>
         </div>
+    </div>
+</section>
 
-        <img src="~/images/intro.jpg" alt="تصویر معرفی نیما ترابی" class="intro-img" data-aos="fade-in">
+<section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
+    <div class="container">
+        <div class="about-heading">
+            <h1>درباره من</h1>
+        </div>
+        <p class="about-text">
+            سلام من نیمام، خوره‌ی کامپیوتر و توسعه دهنده بک‌اند با تمرکز بر ASP.NET. اگه خواستی بیشتر با مسیر کاری و تجربه‌هام آشنا شی، یه سر به بخش رزومه و بیوگرافی بزن!
+        </p>
+    </div>
+</section>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="intro-text-container">
-                <span class="intro-text"></span>
-            </div>
-        </div>
-    </section>
-    <section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
-        <div class="container">
-            <div class="about-heading">
-                <h1>درباره من</h1>
-            </div>
-            <p class="about-text">
-                سلام من نیمام، خوره‌ی کامپیوتر و توسعه دهنده بک‌اند با تمرکز بر ASP.NET. اگه خواستی بیشتر با مسیر کاری و تجربه‌هام آشنا شی، یه سر به بخش رزومه و بیوگرافی بزن!
-            </p>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 نیما ترابی. تمامی حقوق محفوظ است.</p>
-        </div>
-    </footer>
-</div>
 @section Styles {
     <link rel="stylesheet" href="~/css/home.min.css">
 }
@@ -59,7 +52,7 @@
            "@@type" : "Person",
            "name": "نیما ترابی",
            "jobTitle": "توسعه دهنده بک اند ASP.NET",
-           "url": "https://test/ir",
+           "url": "https://nimatorabi.ir",
            "description": "برنامه نویس وب با تمرکز بر ASP.NET و علاقه مند به موسیقی.",
            "sameAs":[
            "https://github.com/Nima-Torabi-1010100",

@@ -1,17 +1,17 @@
 ﻿@page
 @model NTWEB.Pages.ContactModel
 @{
-    ViewData["Title"] = "تماس بامن";
+    ViewData["Title"] = "تماس با من";
     ViewData["Description"] = "تماس با نیما ترابی؛ بخشی برای ارتباط با من و ارسال پیشنهادات یا دعوت به همکاری.";
     ViewData["ActivePage"] = "Contact";
 }
-<div>
-    <section id="contact" class="form-section section" data-aos="fade-up">
-        <div class="container section-title">
-            <h1>تماس با من</h1>
-        </div>
-        <div class="container row col-lg-6">
-            <div>
+<section id="contact" class="form-section section" data-aos="fade-up">
+    <div class="container section-title">
+        <h1>تماس با من</h1>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
                 <form id="form" method="post">
                     <div class="mb-3">
                         <input type="text" class="form-control custom-input" asp-for="ContactForm.Name" placeholder="نام و نام خانوادگی">
@@ -31,25 +31,24 @@
                     </div>
                     <button id="submitBtn" type="submit" class="btn custom-btn w-100">ارسال پیام</button>
                 </form>
-            </div>
-            <div>
                 <p>
                     اگه بخوای میتونی از طریق شبکه‌‌های مجازی زیر هم باهام در ارتباط باشی😉
                 </p>
             </div>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/nimatorabi.t/">
-                    <img src="~/images/socialIcons/instagram.svg" loading="lazy" alt="آیکون اینستاگرام برای نیما ترابی" />
-                    <span>Instagram</span>
-                </a>
-                <a href="https://t.me/nimatorabi_t">
-                    <img src="~/images/socialIcons/telegram.svg" loading="lazy" alt="آیکون تلگرام برای نیما ترابی" />
-                    <span>Telegram</span>
-                </a>
-            </div>
         </div>
-    </section>
-</div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/nimatorabi.t/">
+                <img src="~/images/socialIcons/instagram.svg" loading="lazy" alt="آیکون اینستاگرام برای نیما ترابی" />
+                <span>Instagram</span>
+            </a>
+            <a href="https://t.me/nimatorabi_t">
+                <img src="~/images/socialIcons/telegram.svg" loading="lazy" alt="آیکون تلگرام برای نیما ترابی" />
+                <span>Telegram</span>
+            </a>
+        </div>
+    </div>
+</section>
 <div id="popupMessage"></div>
 @section Styles {
     <link rel="stylesheet" href="~/css/form.min.css">
@@ -60,11 +59,27 @@
 }
 @section Schema {
     <script type="application/ld+json">
-        {
-           "@@context": "https://schema.org",
-           "@@type" : "WebPage",
-           "name": "ارتباط با نیما ترابی",
-           "description": "راه‌های ارتباطی با نیما ترابی؛ ارسال پیام، پشنهاد یا دعوت به همکاری."
+         {
+            "@@context": "https://schema.org",
+            "@@type" : "ContactPage",
+            "name": "تماس با نیما ترابی",
+            "description": "راه‌های ارتباطی با نیما ترابی؛ ارسال پیام، پیشنهاد یا دعوت به همکاری.",
+            "url": "https://nimatorabi.ir/contact",
+            "mainEntity": {
+                "@@type": "Person",
+                "name": "نیما ترابی",
+                "contactPoint": {
+                    "@@type": "ContactPoint",
+                    "contactType": "پشتیبانی و همکاری",
+                    "availableLanguage": ["fa", "en"]
+                },
+                "sameAs": [
+                    "https://www.instagram.com/nimatorabi.t/",
+                    "https://t.me/nimatorabi_t",
+                    "https://github.com/Nima-Torabi-1010100",
+                    "https://www.linkedin.com/in/nima-torabi-9369732b9/"
+                ]
+            }
         }
     </script>
 }
