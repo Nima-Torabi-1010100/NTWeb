@@ -21,7 +21,7 @@ namespace NTWEB.Middleware
             stopwatch.Stop();
 
             var elapsedMs = stopwatch.ElapsedMilliseconds;
-            _logger.LogInformation($"Request to {context.Request.Path} took {elapsedMs} ms");
+            _logger.LogInformation($"Request to {context.Request.Path} took {elapsedMs} ms.");
         }
     }
 }

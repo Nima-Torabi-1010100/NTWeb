@@ -10,23 +10,23 @@ namespace NTWEB.Repositories
         {
             _context = context;
         }
-        public async Task<List<Education>> GetEducationsAsync()
+        public Task<List<Education>> GetEducationsAsync()
         {
-            return await _context.Educations.ToListAsync();
+            return _context.Educations.AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<Language>> GetLanguagesAsync()
+        public Task<List<Language>> GetLanguagesAsync()
         {
-            return await _context.Languages.ToListAsync();
+            return _context.Languages.AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<Skill>> GetSkillsAsync()
+        public Task<List<Skill>> GetSkillsAsync()
         {
-            return await _context.Skills.ToListAsync();
+            return _context.Skills.AsNoTracking().ToListAsync();
         }
-        public async Task<List<WorkExperience>> GetWorkExperiencesAsync()
+        public Task<List<WorkExperience>> GetWorkExperiencesAsync()
         {
-            return await _context.WorkExperiences.ToListAsync();
+            return _context.WorkExperiences.AsNoTracking().ToListAsync();
         }
     }
 }

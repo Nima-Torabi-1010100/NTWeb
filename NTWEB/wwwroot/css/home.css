@@ -34,19 +34,20 @@
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
         background-color: #0f100e;
-        object-position: center 30%;
+        object-position: 15%;
     }
 
     .intro .top-text {
         font-family: var(--logo-font);
         position: absolute;
-        bottom: 10px;
+        bottom: clamp(10px, 4vh, 40px);
         left: 0;
         right: 0;
         display: flex;
         justify-content: space-between;
+        gap: clamp(10px,6vw,100px);
         padding: 0 60px;
-        font-size: clamp(11px, 2vw, 15px);
+        font-size: clamp(13px, 2vw, 15px);
         letter-spacing: 2px;
         text-transform: uppercase;
         opacity: 0.8;
@@ -83,6 +84,7 @@
             }
 
     .intro .intro-text-container {
+        white-space: pre-line;
         display: inline-block;
         animation: float 6s ease-in-out infinite;
     }
@@ -131,8 +133,13 @@
     }
 }
 
+@media (max-width: 944px) {
+    .intro .intro-text-container {
+        padding-top: clamp(200px, 35vh, 350px);
+    }
+}
+
 @media (max-width: 768px) {
-    /* Intro Section & Top Text */
     .intro {
         width: 100%;
         position: relative;
@@ -147,16 +154,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
             z-index: 2;
-        }
-
-        .intro .intro-text-container {
-            padding-top: 350px;
-        }
-
-        .intro .intro-img {
-            object-position: 20%;
         }
 
         .intro .top-text {

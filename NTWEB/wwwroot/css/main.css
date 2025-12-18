@@ -620,9 +620,12 @@ section,
     z-index: 999999;
     overflow: hidden;
     background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.6s ease-out, visibility 0s linear 0.6s
+    transition: opacity 0.6s ease-out, visibility 0s linear 0.6s;
 }
 
     #preloader.hidden {
@@ -630,26 +633,29 @@ section,
         visibility: hidden;
     }
 
-    #preloader:before {
-        content: "";
-        position: fixed;
-        top: calc(50% - 30px);
-        left: calc(50% - 30px);
-        border: 6px solid #ffffff;
-        border-color: var(--accent-color) transparent var(--accent-color) transparent;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: animate-preloader 1.5s linear infinite;
-    }
+.preloader-text-animated {
+    font-family: var(--logo-font);
+    font-size: 72px;
+    fill: none;
+    stroke: #fff;
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+    stroke-width: 1.5px;
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    animation: animate-preloader 1s ease-in-out infinite;
+}
 
 @keyframes animate-preloader {
     0% {
-        transform: rotate(0deg);
+        stroke-dashoffset: 120;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
     }
 
     100% {
-        transform: rotate(360deg);
+        stroke-dashoffset: 120;
     }
 }
 
@@ -743,7 +749,7 @@ svg {
         top: 60px;
         right: -100%;
         width: 100%;
-        padding: 50% 5% 5% 5%;
+        padding: 35% 5% 5% 5%;
         z-index: 99999;
     }
 

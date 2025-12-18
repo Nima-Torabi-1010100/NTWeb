@@ -47,6 +47,10 @@
         width: 100%;
     }
 
+        .bio h1 {
+            margin: 20px 0px 30px 0px;
+        }
+
     .bio-section p {
         margin-top: 30px;
     }
